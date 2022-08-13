@@ -29,6 +29,7 @@ How dod you level up each tool/armor?
 - Chestplate: Money
 - Boots: Money
 - Fishing Rod: Fishing
+- Hoe: Farming
 
 Types of Mining Ores:
 - Stone - 0.01
@@ -103,3 +104,43 @@ Leveling Equation:
     (level/x)**y
     x = lower the value, the more exp per level
     y = higher the value, the large the exp gap per level
+
+
+Player Databases:
+    discord_user_id: BigInt
+    global: {}
+        - lumber
+            - level: MediumInt
+            - exp: BigInt
+        - mining
+        - farming
+        - hunting
+        - fishing
+        - prestiege
+    intentory: {}
+        - "1": SmallInt
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+    items: {}
+        - "sword": 
+            - level: BigInt
+            - exp: BigInt
+        - bows
+        - Pickaxe
+        - Axe
+        - fishing rod
+        - Hoe
+        - Helmet
+        - Chestplate
+        - Boots
+
+
+
