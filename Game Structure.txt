@@ -1,0 +1,105 @@
+# Game Structure 1
+
+TODO:
+work on gameconfig.json,
+- Add shop section [DONE - Called upgrade section]
+- Add all tier prices for weapons/ [DONE -- they're all teh same]
+- Add tier ore types to Pickaxes [DONE]
+
+What does Heroki RPG need to be?
+- The game needs to be surrounded with different things the 
+members can do, usually gonna have to be in regards with time.
+
+What makes a top player... top?
+- Rebirths/prestiege
+- Levels
+- Perk Levels
+
+What makes this game unieuq & endless:
+- Going to have MCMMO style perks for each type of activity.
+- Going to have levels within tiers (or to unlock them)
+- Maxed out tiers, so there is an end, but Rebirths/prestiege doesn't bring anything new (as of now)
+
+How dod you level up each tool/armor?
+- Pickaxes: Mining
+- Axe: Woodcutting/Lumber
+- Sword: Hunting/Questing
+- Bow: Hunting
+- Helmet: Money
+- Chestplate: Money
+- Boots: Money
+- Fishing Rod: Fishing
+
+Types of Mining Ores:
+- Stone - 0.01
+- Coal - 0.5
+- Copper - 1
+- Iron - 5
+- Gold - 10
+- Silver - 25
+- Platinum - 50
+- Vibrance - 100
+- Diamonds - 500  
+- Raw Steel - 1000
+- Emeralds - 2500
+- Firestone - 5000
+- Crystal - 10000
+
+Chest:
+- Common
+- Uncommon
+- Rare
+- Epic
+- Mythical
+
+Loot table:
+    Common:
+        - 1.25x | 1
+        - 1.5x | 2
+        - 2x | 3
+    Uncommon:
+        - 2.5x | 4
+        - money 1.5x | 7
+        - Emerald 2x |9 
+    Rare:
+        - 3x | 5
+        - 5x | 6
+        - money 2x | 8
+        - Firestone 1x | 10
+        - Crystal 1x | 11
+
+Inventory Items/Crate Winnings:
+- 1| Booster exp 1.25x (10-15 mins)
+- 2| Booster exp 1.5x (10-20 mins)
+- 3| Booster exp 2x (10-25 mins)
+- 4| Booster exp 2.5x (15-20 mins)
+- 5| Booster exp 3x (15-25 mins)
+- 6| Booster exp 5x (15-30 mins)
+- 7| Money Boost 1.5x (10-20 mins)
+- 8| Money Boost 2x (15-30 mins)
+- 9| Emeralds (1-2)
+- 10| Firestone (1)
+- 11| Crystal (1)
+
+
+Skins:
+- Bow [DONE]
+- Sword [DONE]
+- Pickaxe [DONE]
+- Axe [DONE]
+- Hoe [DONE]
+- Fishing Rod [DONE]
+- EXP Booster [DONE]
+- Money Booster [DONE]
+- All minerals [DONE]
+- Armor [DONE]
+- Chest [DONE]
+- Quest [DONE]
+- Level up emote [DONE]
+- Rebirth emote [DONE]
+
+
+Leveling Equation:
+    (level/x)**y
+    x = lower the value, the more exp per level
+    y = higher the value, the large the exp gap per level
