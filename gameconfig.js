@@ -1,4 +1,4 @@
-{
+module.exports = {
     "color": {
         "lumber": "543413",
         "farming": "ff9b0f",
