@@ -11,14 +11,14 @@ What does Heroki RPG need to be?
 members can do, usually gonna have to be in regards with time.
 
 What makes a top player... top?
-- Rebirths/prestiege
+- prestiege
 - Levels
 - Perk Levels
 
 What makes this game unieuq & endless:
 - Going to have MCMMO style perks for each type of activity.
 - Going to have levels within tiers (or to unlock them)
-- Maxed out tiers, so there is an end, but Rebirths/prestiege doesn't bring anything new (as of now)
+- Maxed out tiers, so there is an end, but prestiege doesn't bring anything new (as of now)
 
 How dod you level up each tool/armor?
 - Pickaxes: Mining
@@ -108,6 +108,7 @@ Leveling Equation:
 
 Player Databases:
     discord_user_id: BigInt
+    command_cooldown: String<Int>
     global: {}
         - lumber
             - level: MediumInt
@@ -141,6 +142,12 @@ Player Databases:
         - Helmet
         - Chestplate
         - Boots
+    chest: {}
+        - common: MediumInt
+        - uncommon: MediumInt
+        - rare: MediumInt
+        - epic: MediumInt
+        - mythical: MediumInt
 
 
 
