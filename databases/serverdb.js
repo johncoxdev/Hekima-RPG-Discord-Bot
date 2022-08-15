@@ -1,7 +1,12 @@
 const Sequelize = require('sequelize');
 const sequelize = require('./initdb.js');
 
-const Server = sequelize.define('serverdb', {
+/**
+ * Initialize the server database with 
+ * basic information.
+ */
+
+const ServerDb = sequelize.define('serverdb', {
     serverID: {
         type: Sequelize.INTEGER,
         unique: true,

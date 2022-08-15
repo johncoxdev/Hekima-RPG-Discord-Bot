@@ -108,18 +108,25 @@ Leveling Equation:
 
 Player Databases:
     discord_user_id: BigInt
-    command_cooldown: String<Int>
+    times: {}
+        - global_cooldown: 
+        - exp_multiplier: {}
+            - Amount
+            - time
+        - money_multiplier: {}
+            - Amount
+            - time
     global: {}
         - lumber
-            - level: MediumInt
-            - exp: BigInt
+            - level:
+            - exp: 
         - mining
         - farming
         - hunting
         - fishing
         - prestiege
     intentory: {}
-        - "1": SmallInt
+        - "1": 
         - 2
         - 3
         - 4
@@ -132,8 +139,8 @@ Player Databases:
         - 11
     items: {}
         - "sword": 
-            - level: BigInt
-            - exp: BigInt
+            - level: 
+            - exp: 
         - bows
         - Pickaxe
         - Axe
@@ -143,11 +150,11 @@ Player Databases:
         - Chestplate
         - Boots
     chest: {}
-        - common: MediumInt
-        - uncommon: MediumInt
-        - rare: MediumInt
-        - epic: MediumInt
-        - mythical: MediumInt
+        - common: SmallInt 
+        - uncommon:
+        - rare:
+        - epic:
+        - mythical:
 
 
 
