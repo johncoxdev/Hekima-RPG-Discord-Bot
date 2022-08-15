@@ -177,9 +177,6 @@ Staff:
         - set_channel (for booster message)
         - set_daily (for server boosters)
         - set_weekly (for regular members)
-
-
-
 Things to do:
     - Check if user is doing any command for the first time
     - Check for the user is doing the bot's command and that's when I set the global_cooldown for user

@@ -15,7 +15,7 @@ module.exports = {
         "no_permission": "You do not have the permissions to execute this command!",
         "not_booster": "You are not a server booster! Only server boosters are allowed to use this command!",
         "quest_active": "You already have an active quest!",
-        "multiplier_active": "You already have an active multiplier!"
+        "multiplier_active": "You already have an active multiplier!",
     },
     "event": {
         "quest": {

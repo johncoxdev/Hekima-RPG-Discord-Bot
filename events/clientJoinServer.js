@@ -28,11 +28,11 @@ module.exports = {
          * the user in the database, if there is already an 
          * instance of a user in the database, it will continue.
          */
-        const fetchedUsers = await guild.members.fetch();
+         const fetchedUsers = await interaction.guild.members.fetch();
 
-        for (const mem of fetchedUsers){
-            if (mem.user.bot) continue;
-            addMember(mem.user.id)   
-        }
+         for (const mem of fetchedUsers){
+             if (mem[1].user.bot) continue;
+             await addMember(mem[1].user.id)   
+         } 
 	},
 };

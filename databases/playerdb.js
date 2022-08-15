@@ -76,38 +76,47 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.JSON,
         defaultValue: {
             "sword": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "bow": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "pickaxe": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "axe": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "fishing_rod": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "hoe": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "helmet": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "chesplate": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             },
             "boots": {
+                "tier": 1,
                 "level": 0,
                 "exp": 0
             }
@@ -127,8 +136,8 @@ const PlayerDb = sequelize.define('player', {
 
 module.exports = {
     PlayerDb,
-    addMember(userId) {
-        Player.findOrCreate({
+    async addMember(userId) {
+        await PlayerDb.findOrCreate({
             where: {
                 discord_user_id: userId
             }
