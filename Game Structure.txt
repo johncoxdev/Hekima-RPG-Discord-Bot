@@ -1,11 +1,5 @@
 # Game Structure 1
 
-TODO:
-work on gameconfig.json,
-- Add shop section [DONE - Called upgrade section]
-- Add all tier prices for weapons/ [DONE -- they're all teh same]
-- Add tier ore types to Pickaxes [DONE]
-
 What does Heroki RPG need to be?
 - The game needs to be surrounded with different things the 
 members can do, usually gonna have to be in regards with time.
@@ -159,20 +153,34 @@ Player Databases:
 
 
 commands:
-- mining
-- farming
--
--
--
--
--
--
--
--
--
-events:
+General:
+    - /mining
+    - /farming
+    - /hunting
+    - /fishing
+    - /lumbering
+    - /inventory
+    - /use_item <id>
+    - /boosters
+    - /chest
+    - /open_chest <chest>
+    - /quest
+    - /start_quest <difficulty -- choices>
+    - /shop
+    - /buy_item <id>
+    - /prestiege
+    - /daily <for Server boosters>
+    - /weekly <for regular members>
+    - /leaderboards
+Staff:
+    - settings
+        - set_channel (for booster message)
+        - set_daily (for server boosters)
+        - set_weekly (for regular members)
 
 
 
-
+Things to do:
+    - Check if user is doing any command for the first time
+    - Check for the user is doing the bot's command and that's when I set the global_cooldown for user
 

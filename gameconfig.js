@@ -173,7 +173,7 @@ module.exports = {
                 }
             },
             "prices": {
-                "stone": 0.1,
+                "stone": 0.25,
                 "coal": 0.5,
                 "copper": 1,
                 "iron": 5,

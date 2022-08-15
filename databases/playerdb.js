@@ -15,7 +15,9 @@ const PlayerDb = sequelize.define('player', {
     times: {
         type: Sequelize.JSON,
         defaultValue: {
-            "global_cooldown": 0,
+            "command_cooldown": 0,
+            "daily_claim": 0,
+            "weekly_claim": 0,
             "exp_multiplier": {
                 "active": false,
                 "amount": 0.0,
