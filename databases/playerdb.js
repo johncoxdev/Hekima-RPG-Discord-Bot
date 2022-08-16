@@ -12,6 +12,10 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.BIGINT,
         unique: true
     },
+    first_time_user: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
+    },
     times: {
         type: Sequelize.JSON,
         defaultValue: {

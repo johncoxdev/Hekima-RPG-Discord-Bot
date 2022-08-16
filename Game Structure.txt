@@ -168,7 +168,7 @@ General:
     - /start_quest <difficulty -- choices>
     - /shop
     - /buy_item <id>
-    - /prestiege
+    DONE - /prestiege
     - /daily <for Server boosters>
     - /weekly <for regular members>
     - /leaderboards
@@ -178,6 +178,6 @@ Staff:
         - set_daily (for server boosters)
         - set_weekly (for regular members)
 Things to do:
-    - Check if user is doing any command for the first time
+    [DONE] - Check if user is doing any command for the first time
     - Check for the user is doing the bot's command and that's when I set the global_cooldown for user
 

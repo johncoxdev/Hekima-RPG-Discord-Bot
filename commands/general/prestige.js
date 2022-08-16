@@ -15,7 +15,6 @@ module.exports = {
         .setDescription('Prestige and rest most info!'),
 
     async execute(interaction) {     
-        
         /** 
          * We're going to check for all tools, and make sure they're at 
          * tier 10. If not, cannot exectute command!
