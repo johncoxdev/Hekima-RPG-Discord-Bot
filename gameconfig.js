@@ -9,11 +9,81 @@ module.exports = {
         "failed": "c90000",
         "other": "d0ff8a"
     },
+    "invitems": {
+        "emoji": {
+            "1": "<:ID_1:1007754508329287720>",
+            "2": "<:ID_2:1007754509688254525>",
+            "3": "<:ID_3:1007754510711656518>",
+            "4": "<:ID_4:1007754511475032105>",
+            "5": "<:ID_5:1007754512666206381>",
+            "6": "<:ID_6:1007754513828020304>",
+            "7": "<:ID_7:1007754558203777077>",
+            "8": "<:ID_8:1007754559931809812>",
+            "9": "<:emerald:1007503844286136392>",
+            "10": "<:firestone:1007503845808676896>",
+            "11": "<:crystal:1007503842948165652>"
+        },
+        "name": {
+            "1": "Booster exp 1.25x (10-15 mins)",
+            "2": "Booster exp 1.5x (10-20 mins)",
+            "3": "Booster exp 2x (10-25 mins)",
+            "4": "Booster exp 2.5x (15-20 mins)",
+            "5": "Booster exp 3x (15-25 mins)",
+            "6": "Booster exp 5x (15-30 mins)",
+            "7": "Money Boost 1.5x (10-20 mins)",
+            "8": "Money Boost 2x (15-30 mins)",
+            "9": "Emerald",
+            "10": "Firestone",
+            "11": "Crystal",
+        },
+        "info": {
+            "1": {
+                "min": 10,
+                "max": 15
+            },
+            "2": {
+                "min": 10,
+                "max": 20
+            },
+            "3": {
+                "min": 10,
+                "max": 25
+            },
+            "4": {
+                "min": 15,
+                "max": 20
+            },
+            "5": {
+                "min": 15,
+                "max": 25
+            },
+            "6": {
+                "min": 15,
+                "max": 30
+            },
+            "7": {
+                "min": 10,
+                "max": 20
+            },
+            "8": {
+                "min": 15,
+                "max": 30
+            },
+            "9": {
+                "money": 1500,
+                "exp": 1000
+            },
+            "10": {
+                "money": 1750,
+                "exp": 1500
+            },
+            "11": {
+                "money": 3000,
+                "exp": 2500
+            },
+        }
+    },
     "message": {
-        "server_not_found": "Server not found!",
-        "player_not_found": "User not found!",
-        "banned": "You are banned from using this command!",
-        "no_permission": "You do not have the permissions to execute this command!",
         "not_booster": "You are not a server booster! Only server boosters are allowed to use this command!",
         "quest_active": "You already have an active quest!",
         "multiplier_active": "You already have an active multiplier!",
@@ -186,7 +256,7 @@ module.exports = {
                 "raw steel": 1000,
                 "emerald": 1500,
                 "firestone": 1750,
-                "crystal": 2500
+                "crystal": 3000
             },
             "exp": {
                 "stone": 1,
@@ -212,8 +282,8 @@ module.exports = {
                 "uncommon": 25,
                 "rare": 2
             },
-            "min": 1,
-            "max": 1
+            "amount": 1,
+            "emoji": "<:common:1007039905077141564>"
         },
         "uncommon": {
             "loottable": {
@@ -221,8 +291,8 @@ module.exports = {
                 "uncommon": 40,
                 "rare": 5
             },
-            "min": 1,
-            "max": 1
+            "amount": 1,
+            "emoji": "<:uncommon:1007039908218675391>"
         },
         "rare": {
             "loottable": {
@@ -230,8 +300,8 @@ module.exports = {
                 "common": 35,
                 "rare": 10
             },
-            "min": 1,
-            "max": 1
+            "amount": 2,
+            "emoji": "<:rare:1007503664954486784>"
         },
         "epic": { 
             "loottable": {
@@ -239,8 +309,8 @@ module.exports = {
                 "common": 25,
                 "rare": 15
             },
-            "min": 1,
-            "max": 2
+            "amount": 2,
+            "emoji": "<:epic:1007039907279155220> "
         },
         "mythical": {
             "loottable": {
@@ -248,8 +318,8 @@ module.exports = {
                 "rare": 30,
                 "common": 10
             },
-            "min": 1,
-            "max": 2
+            "amount": 3,
+            "emoji": "<:mythical:1007039906167672852>"
         }
     },
     "loottable": {

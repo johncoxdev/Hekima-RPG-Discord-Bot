@@ -19,7 +19,6 @@ const PlayerDb = sequelize.define('player', {
     times: {
         type: Sequelize.JSON,
         defaultValue: {
-            "command_cooldown": 0,
             "daily_claim": 0,
             "weekly_claim": 0,
             "exp_multiplier": {
@@ -129,7 +128,7 @@ const PlayerDb = sequelize.define('player', {
     chest: {
         type: Sequelize.JSON,
         defaultValue: {
-            "common": 0,
+            "common": 1,
             "uncommon": 0,
             "rare": 0,
             "epic": 0,

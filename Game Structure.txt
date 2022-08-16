@@ -72,7 +72,7 @@ Inventory Items/Crate Winnings:
 - 6| Booster exp 5x (15-30 mins)
 - 7| Money Boost 1.5x (10-20 mins)
 - 8| Money Boost 2x (15-30 mins)
-- 9| Emeralds (1-2)
+- 9| Emeralds (1)
 - 10| Firestone (1)
 - 11| Crystal (1)
 
@@ -163,7 +163,7 @@ General:
     DONE - /inventory
     - /use_item <id>
     - /boosters
-    - /chest
+    DONE - /chest
     - /open_chest <chest -- choices>
     - /quest
     - /start_quest <difficulty -- choices>
@@ -174,7 +174,7 @@ General:
     - /weekly <for regular members>
     - /leaderboards
 Staff:
-    - settings
+    - /settings
         - set_channel (for booster message)
         - set_daily (for server boosters)
         - set_weekly (for regular members)

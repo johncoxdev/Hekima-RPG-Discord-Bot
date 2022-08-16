@@ -46,33 +46,9 @@ module.exports = {
                 discord_user_id: interaction.user.id
             }
         });
-
-		// Get the times from the database, and get the user command
-		const timeTable = foundPlayer.times;
-		const getCooldown = timeTable.command_cooldown;
-		let currentTime = Math.floor(Date.now() / 1000);
-		const cooldownOn = new EmbedBuilder()
-			.setColor(color.failed)
-			.setDescription(`Cooldown ends in <t:${getCooldown}:R>`);
-
-		//If there is a cooldown, return a error [cooldownOn] message.
-		if(getCooldown > currentTime) return interaction.reply({ embeds: [cooldownOn] })
-
-		//execute command if enough time has passed & update cooldown for user.
+		
 		try {
 			command.execute(interaction);
-
-			currentTime = Math.floor((Date.now() / 1000) + 5);
-			timeTable.command_cooldown = currentTime
-
-			PlayerDb.update({
-				times: timeTable
-			},
-			{
-				where: {
-					discord_user_id: interaction.user.id
-				}
-			});
 		} catch (error) {
 			console.error(error);
 		}	

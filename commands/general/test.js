@@ -14,9 +14,7 @@ module.exports = {
     async execute(interaction) {
 
         if (interaction.user.id !== "957825927109279775") return interaction.reply("You cant do this command!"); 
-
-        // Chest command
-
+        
         interaction.reply("test completed!");
     }
 }

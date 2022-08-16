@@ -14,6 +14,6 @@ module.exports = {
          * the user in the database, if there is already an 
          * instance of a user in the database, it will continue.
          */
-            addMember(member.user.id)   
+            await addMember(member.user.id)   
 	},
 };
