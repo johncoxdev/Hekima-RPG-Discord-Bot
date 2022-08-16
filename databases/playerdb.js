@@ -141,10 +141,11 @@ const PlayerDb = sequelize.define('player', {
 module.exports = {
     PlayerDb,
     async addMember(userId) {
-        await PlayerDb.findOrCreate({
+        const foundPlayer = await PlayerDb.findOrCreate({
             where: {
                 discord_user_id: userId
             }
         });
+        return foundPlayer
     }
 };

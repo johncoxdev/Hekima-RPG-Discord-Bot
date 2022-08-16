@@ -21,13 +21,13 @@ module.exports = {
 		if (!command) return;
 
 		
-		//get time from database, and if they're not a part of it. Add them
+		//get time from database, and if they're not a part of it. Add them & set the right foundPlayer instance
 		let foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } })
 
-		if (!foundPlayer) await addMember(interaction.user.id);
-
-		//recall the player, redundant for people who do have a profile already.
-		foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } })
+		if (!foundPlayer) {
+			foundPlayer = await addMember(interaction.user.id);
+			foundPlayer = foundPlayer[0];
+		};
 
         //If member is a first time user, then send them this message and update the database.
         const firstTimeEmbed = new EmbedBuilder()
