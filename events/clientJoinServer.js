@@ -17,7 +17,7 @@ module.exports = {
         const serverOwnerEmbed = new EmbedBuilder()
         .setAuthor({ name: "Hekima RPG" })
         .setColor(color.success)
-        .setFooter({ text: "Thank you for inviting Hekima RPG to your server! Make sure to use /settings to add some additional features (optional) for your server!" });
+        .setDescription("Thank you for inviting Hekima RPG to your server! Make sure to use /settings to add some additional features (optional) for your server!");
              
         serverOwner.send({ embeds: [serverOwnerEmbed] });
 	},

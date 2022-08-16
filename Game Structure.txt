@@ -159,11 +159,12 @@ General:
     - /hunting
     - /fishing
     - /lumbering
-    - /inventory
+    - /stats <tools/jobs -- choices>
+    DONE - /inventory
     - /use_item <id>
     - /boosters
     - /chest
-    - /open_chest <chest>
+    - /open_chest <chest -- choices>
     - /quest
     - /start_quest <difficulty -- choices>
     - /shop
@@ -179,5 +180,5 @@ Staff:
         - set_weekly (for regular members)
 Things to do:
     [DONE] - Check if user is doing any command for the first time
-    - Check for the user is doing the bot's command and that's when I set the global_cooldown for user
+    [DONE] - Check for the user is doing the bot's command and that's when I set the global_cooldown for user
 

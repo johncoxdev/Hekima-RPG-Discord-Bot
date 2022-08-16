@@ -6,7 +6,8 @@ module.exports = {
         "hunting": "8f3b3b",
         "fishing": "297eff",
         "success": "1aff00",
-        "failed": "c90000"
+        "failed": "c90000",
+        "other": "d0ff8a"
     },
     "message": {
         "server_not_found": "Server not found!",

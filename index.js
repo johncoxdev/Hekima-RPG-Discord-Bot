@@ -1,3 +1,5 @@
+// Bot Invite Link: https://discord.com/api/oauth2/authorize?client_id=975842633861709904&permissions=277025778752&scope=bot%20applications.commands
+
 const fs = require('node:fs');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 require('dotenv').config()

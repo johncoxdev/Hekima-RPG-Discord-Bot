@@ -37,7 +37,7 @@ module.exports = {
          if (notMaxed.length !== 0){
              notMaxedEmbed = new EmbedBuilder()
              .setColor(color.failed)
-             .setDescription(`You are missing ${notMaxed.replace("_", " ")} to be tier 10 in order to \`/prestige\``);
+             .setDescription(`You are missing **${notMaxed.replace("_", " ")}** to be tier 10 in order to \`/prestige\``);
              
              return interaction.reply({ embeds: [notMaxedEmbed] });
          }
