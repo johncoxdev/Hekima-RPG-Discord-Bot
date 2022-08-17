@@ -170,8 +170,8 @@ General:
     - /shop
     - /buy_item <id>
     DONE - /prestiege
-    - /daily <for Server boosters>
-    - /weekly <for regular members>
+    DONE - /daily <for Server boosters>
+    DONE - /weekly <for regular members>
     - /leaderboards
 Staff:
     - /settings

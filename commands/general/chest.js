@@ -16,19 +16,19 @@ module.exports = {
 
         if (interaction.user.id !== "957825927109279775") return interaction.reply("You cant do this command!"); 
 
-        // Chest command
+        // Chest command -- In this command I'm aware of the changes between crate & chest. But in all cases they mean the same thing.
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
         const chest = foundPlayer.chest
 
         const chestEmbed = new EmbedBuilder()
             .setColor(color.other)
             .setTitle(`${interaction.user.username} Inventory`)
-            .setDescription("\u200B")
+            .setDescription("\u200B") //Use a unicode to set the description as empty
             .setFooter({ text: "To open a chest, please do \n/open_chest <chestType>" });
 
             for (const type of Object.keys(crate)){
                 chestEmbed.data.description += `${crate[type]['emoji']} **| ${chest[type]} |** ${type.charAt(0).toUpperCase() + type.slice(1)} Chest\n`
-            }
+            } //The type.charAr()... just capitalizes the chest type.
 
         interaction.reply({ embeds: [chestEmbed] })
     }

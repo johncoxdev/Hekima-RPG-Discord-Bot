@@ -23,9 +23,11 @@ module.exports = {
         const inventoryEmbed = new EmbedBuilder()
             .setColor(color.other)
             .setTitle(`${interaction.user.username} Inventory`)
-            .setDescription("\u200B")
+            .setDescription("\u200B") //Use a unicode to set the description as empty
             .setFooter({ text: "To use an item, please do \n/use_item <ID#>" })
 
+            //I personally just set 'x' as 1 because I didn't want to +1. It slightly makes
+            //more confusing because you do have to subtract the 12 by the start of x, 1.
             for (x=1; x<12; x++){
                 inventoryEmbed.data.description += `${invitems['emoji'][x]} **| \`ID: 01\` | ${inv[x]} |** ${invitems['name'][x]}\n` 
             }
