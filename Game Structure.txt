@@ -150,6 +150,11 @@ Player Databases:
         - epic:
         - mythical:
 
+NOTE:
+Mining, Farming, Hunting, Fishing, & lumbering are all going to be very similar
+in event, so I'm going to use a utilities folder in gameconfig that will do all the
+heavy work. This should reduce all the repeative code within each file by a fair
+amount.
 
 
 commands:
