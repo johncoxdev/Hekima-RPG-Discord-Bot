@@ -1,5 +1,6 @@
 const { InteractionType, EmbedBuilder, codeBlock } = require('discord.js');
 const { PlayerDb, addMember } = require('../databases/playerdb');
+const { ServerDb, addServer } = require('../databases/serverdb');
 const { color } = require('../gameconfig');
 
 /**
@@ -20,9 +21,11 @@ module.exports = {
 		const command = commands.get(interaction.commandName);
 		if (!command) return;
 
-		
-		//get time from database, and if they're not a part of it. Add them & set the right foundPlayer instance
-		let foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } })
+		//Get player and server from database, if they don't exist then create it.
+		let foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
+		let foundServer = await ServerDb.findOne({ where: { server_id: interaction.guildId } });
+
+		if (!foundServer) await addServer(interaction.guildId)
 
 		if (!foundPlayer) {
 			foundPlayer = await addMember(interaction.user.id);

@@ -7,19 +7,30 @@ const sequelize = require('./initdb.js');
  */
 
 const ServerDb = sequelize.define('serverdb', {
-    serverID: {
+    server_id: {
         type: Sequelize.INTEGER,
         unique: true,
     },
-    serverBoostChannelID: {
-        type: Sequelize.STRING
+    server_boost_channel_id: {
+        type: Sequelize.STRING,
+        defaultValue: ""
+    },
+    daily_chest:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
+    },
+    weekly_chest:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
     }
 });
 module.exports = {
-    Server,
-    inputServerDatabase(guildID){
-		Server.create({
-			serverID: guildID
+    ServerDb,
+    async addServer(serverId){
+		await ServerDb.findOrCreate({
+            where: {
+			    server_id: serverId
+            }
 		});
 	}
 }

@@ -16,6 +16,10 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.BOOLEAN,
         defaultValue: true
     },
+    money: {
+        type: Sequelize.BIGINT,
+        defaultValue: 0
+    },
     times: {
         type: Sequelize.JSON,
         defaultValue: {

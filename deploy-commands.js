@@ -11,7 +11,7 @@ for (const subFolder of commandFolders){
 	const commandFiles = fs.readdirSync(`./commands/${subFolder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles){
 		const command = require(`./commands/${subFolder}/${file}`)
-		console.log("logged", command.data.name)
+		console.log("loaded:", command.data.name)
 		commands.push(command.data.toJSON());		
 	}
 }

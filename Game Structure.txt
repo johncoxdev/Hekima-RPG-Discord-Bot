@@ -164,7 +164,7 @@ General:
     - /use_item <id>
     - /boosters
     DONE - /chest
-    - /open_chest <chest -- choices>
+    DONE - /open_chest <chest -- choices>
     - /quest
     - /start_quest <difficulty -- choices>
     - /shop

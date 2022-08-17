@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, crate, loottable, itemnames, itememojis} = require('../../gameconfig.js');
+const { color, crate, loottable, invitems } = require('../../gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 /**
  * This command will allow the user to open a chest, if they
@@ -65,7 +65,7 @@ module.exports = {
         //Build EmbedMessage
         const chestEmbed = new EmbedBuilder()
             .setTitle(`You opened a ${chosenChoice} chest!`)
-            .setColor(color.other)
+            .setColor(color.success)
             .setDescription("Items:\n")
             .setFooter({ text: "All items have been added to your /inventory"});
 
@@ -78,7 +78,7 @@ module.exports = {
         for (x = 0; x < randomAmt; x++){
             let itemId = get_random_tier(chest, randomNumber)
             inv[`${itemId}`] += 1
-            chestEmbed.data.description += `${itememojis[`${itemId}`]} **+1** ${itemnames[`${itemId}`]}\n`
+            chestEmbed.data.description += `${invitems['emoji'][itemId]} **+1** ${invitems['name'][itemId]}\n`
         }
 
         await PlayerDb.update({
