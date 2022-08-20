@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
-const { color } = require('../gameconfig.js');
+const { color } = require('../game-assets/gameconfig.js');
 
 /**
  * Initiated when the client joins a server, it will

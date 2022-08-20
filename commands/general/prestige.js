@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
-const { color } = require('../../gameconfig.js');
+const { color } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 
 /**
@@ -44,7 +44,7 @@ module.exports = {
  
  
          // Sends prestige message & updates database.
-         prestigedImg = new AttachmentBuilder('z-game-images/emote/prestige.png', { name: 'prestige.png' });
+         prestigedImg = new AttachmentBuilder('game-assets/game-images/emote/prestige.png', { name: 'prestige.png' });
          prestigeEmbed = new EmbedBuilder()
              .setColor(color.success)
              .setTitle("【✸】 PRESTIGE 【✸】")

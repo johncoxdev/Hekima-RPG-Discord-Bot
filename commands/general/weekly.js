@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, crate } = require('../../gameconfig.js');
+const { color, crate } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 const { ServerDb } = require('../../databases/serverdb.js')
 /**

@@ -20,11 +20,9 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.BIGINT,
         defaultValue: 0
     },
-    times: {
+    multipliers: {
         type: Sequelize.JSON,
         defaultValue: {
-            "daily_claim": 0,
-            "weekly_claim": 0,
             "exp_multiplier": {
                 "active": false,
                 "amount": 0.0,
@@ -35,6 +33,13 @@ const PlayerDb = sequelize.define('player', {
                 "amount": 0.0,
                 "time": 0
             }
+        }
+    },
+    times: {
+        type: Sequelize.JSON,
+        defaultValue: {
+            "daily_claim": 0,
+            "weekly_claim": 0,
         }
     },
     perm_levels: {

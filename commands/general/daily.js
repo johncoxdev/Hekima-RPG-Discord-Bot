@@ -1,7 +1,8 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, crate } = require('../../gameconfig.js');
+const { color, crate } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
-const { ServerDb } = require('../../databases/serverdb.js')
+const { ServerDb } = require('../../databases/serverdb.js');
+
 /**
  * A command that will give a common chest to a user daily.
  * The server owners are allowed to enable/disable it. If

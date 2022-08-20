@@ -39,35 +39,43 @@ module.exports = {
         "info": {
             "1": {
                 "min": 10,
-                "max": 15
+                "max": 15,
+                "exp_amount": 1.25
             },
             "2": {
                 "min": 10,
-                "max": 20
+                "max": 20,
+                "exp_amount": 1.5
             },
             "3": {
                 "min": 10,
-                "max": 25
+                "max": 25,
+                "exp_amount": 2
             },
             "4": {
                 "min": 15,
-                "max": 20
+                "max": 20,
+                "exp_amount": 2.5
             },
             "5": {
                 "min": 15,
-                "max": 25
+                "max": 25,
+                "exp_amount": 3
             },
             "6": {
                 "min": 15,
-                "max": 30
+                "max": 30,
+                "exp_amount": 5
             },
             "7": {
                 "min": 10,
-                "max": 20
+                "max": 20,
+                "money_amount": 1.5
             },
             "8": {
                 "min": 15,
-                "max": 30
+                "max": 30,
+                "money_amount": 2
             },
             "9": {
                 "money": 1500,
@@ -86,7 +94,8 @@ module.exports = {
     "message": {
         "not_booster": "You are not a server booster! Only server boosters are allowed to use this command!",
         "quest_active": "You already have an active quest!",
-        "multiplier_active": "You already have an active multiplier!",
+        "multiplier_active": "You already have that type of multipler active! Check /boosters",
+        "booster_set": "You have set your %TYPE% booster! Check /boosters"
     },
     "event": {
         "quest": {

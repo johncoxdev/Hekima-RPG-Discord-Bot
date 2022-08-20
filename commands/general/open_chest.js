@@ -1,9 +1,17 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, crate, loottable, invitems } = require('../../gameconfig.js');
+const { color, loottable, invitems, crate } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 /**
  * This command will allow the user to open a chest, if they
  * have one and get a random reward from a tier that is selected.
+ * The way the chest system works is by first checking if a user has
+ * a chest in their profile, and if so we will use one, give them a 
+ * reward, and update the chest count and inventory status of the user.
+ * 
+ * Chest rewards are based on two systems. One being that a chest gets
+ * a random tier of rewards based on a weight system. Once you found a
+ * tier of rewards. It will then get a random ID from that list and give
+ * it to the user.
  */
 
 module.exports = {
@@ -38,19 +46,8 @@ module.exports = {
 
     async execute(interaction) {
 
-        /**
-         * The way the chest system works is by first checking if a user has
-         * a chest in their profile, and if so we will use one, give them a 
-         * reward, and update the chest count and inventory status of the user.
-         * 
-         * Chest rewards are based on two systems. One being that a chest gets
-         * a random tier of rewards based on a weight system. Once you found a
-         * tier of rewards. It will then get a random ID from that list and give
-         * it to the user.
-         */
-
         //Get the choice and see if a user has a chest of that kind
-        const chosenChoice = interaction.options.getString('type')
+        const chosenChoice = await interaction.options.getString('type')
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
         const playersChests = foundPlayer.chest;
         

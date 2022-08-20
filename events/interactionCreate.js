@@ -1,7 +1,7 @@
 const { InteractionType, EmbedBuilder, codeBlock } = require('discord.js');
 const { PlayerDb, addMember } = require('../databases/playerdb');
 const { ServerDb, addServer } = require('../databases/serverdb');
-const { color } = require('../gameconfig');
+const { color } = require('../game-assets/gameconfig.js');
 
 /**
  * Initialized when a command interaction is made
