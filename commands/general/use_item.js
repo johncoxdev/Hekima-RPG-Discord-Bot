@@ -110,21 +110,6 @@ module.exports = {
             //If it is not a booster, we are going to be handling a ore object and we have to sell it with the 
             //possible boost that the player may have.
         }
-
-        //I'm going to check three cases, EXP, Money, & Item
-        if (playerChoice >= 1 && playerChoice <= 6 ){
-            //Case: Exp Multiplier
-            
-            
-
-        }else if (playerChoice >= 7 && playerChoice <= 8){
-            //Case: Money Multiplier
-        }else{
-            //Case: Ore Use
-            /** TODO: Do this case once you have /mining, farming, etc set up. 
-             * We're going to have to take into account of multipliers for this too.
-             */
-        }
     }
 }
 
