@@ -2,6 +2,12 @@ const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { color, message, invitems } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 /**
+ * 
+ * TODO: create a removeInventoryItem() & removeChest() in utilities.js
+ * async removeInventoryItem(userId, itemId)
+ * async removeChest(userId, chestType)
+ * 
+ * 
  * A command that will use the item that the player is wanting
  * to use from their inventory. This will reduce the item by
  * 1 within the database. This will also update the time, if
@@ -26,8 +32,8 @@ module.exports = {
             .setName("id_number")
             .setDescription("Id number for the item you want to use")
             .setRequired(true)
-            .setMaxValue(11)
-            .setMinValue(1)),
+            .setMinValue(1)
+            .setMaxValue(11)),
 
     async execute(interaction) {
         //use_item command
@@ -50,40 +56,66 @@ module.exports = {
             .setTitle("Booster Activated!") 
             .setColor(color.success)
 
+
+        /**
+         * My thoughts:
+         * 
+         * - I'm going to check if the user even has an item
+         * - I'm going to then check if the item is a booster with the isBooster() function
+         * - I'm going to then check the type of booster to access all the correct information
+         * with the gameconfig.
+         * 
+         */
+
+        
         //first check if they even have something to use.
         if (playerInventory[playerChoice] <= 0) return interaction.reply({ embeds: [noItemEmbed] });
 
-        //I'm going to check three cases, EXP, Money, & Item
-        if (playerChoice >= 1 && playerChoice <= 6 ){
-            //Case: Exp Multiplier
+        if (isBooster(playerChoice)){
+
             const minMin = invitems.info[playerChoice].min;
             const maxMin = invitems.info[playerChoice].max;
-            const expAmount = invitems.info[playerChoice].exp_amount;
             const randomMin = Math.floor(Math.random() * (maxMin-minMin+1)+maxMin);
             const currentTime = Math.floor(Date.now()/1000);
             const newTime = currentTime + (60*randomMin);
 
-            if (expMultiplier['active']) {
-                return interaction.reply({ embeds: [boosterActiveEmbed] });
-            }   
-            const newExpMultiplier = {
-                "active": true,
-                "amount": expAmount,
-                "time": newTime
-            }
+            //Then we get all the global items, but we're still going to have to check what type of booster it is.
+            if(boosterType(playerChoice) == "exp"){
 
-            playerInventory[playerChoice] -= 1;
-            playerMultis['exp_multiplier'] = newExpMultiplier
-            
-            await PlayerDb.update({
-                inventory: playerInventory,
-                multipliers: playerMultis
-            },{
-                where: {
-                    discord_user_id: interaction.user.id
+                const expAmount = invitems.info[playerChoice].exp_amount;
+
+                if (expMultiplier['active']) return interaction.reply({ embeds: [boosterActiveEmbed] });
+
+                const newExpMultiplier = {
+                    "active": true,
+                    "amount": expAmount,
+                    "time": newTime
                 }
-            });
-            interaction.reply({ embeds: [boosterSetEmbed]});
+
+                //removes item
+                playerInventory[playerChoice] -= 1;
+                playerMultis['exp_multiplier'] = newExpMultiplier
+                
+                await PlayerDb.update({
+                    inventory: playerInventory,
+                    multipliers: playerMultis
+                },{
+                    where: {
+                        discord_user_id: interaction.user.id
+                    }
+                });
+                interaction.reply({ embeds: [boosterSetEmbed]});
+            }
+        } else {
+            //If it is not a booster, we are going to be handling a ore object and we have to sell it with the 
+            //possible boost that the player may have.
+        }
+
+        //I'm going to check three cases, EXP, Money, & Item
+        if (playerChoice >= 1 && playerChoice <= 6 ){
+            //Case: Exp Multiplier
+            
+            
 
         }else if (playerChoice >= 7 && playerChoice <= 8){
             //Case: Money Multiplier
@@ -95,3 +127,12 @@ module.exports = {
         }
     }
 }
+
+function isBooster(playerChoice){
+    if (playerChoice >= 1 && playerChoice <= 8) return true;
+    return false;
+};
+function boosterType(playerChoice){
+    if (playerChoice >= 1 && playerChoice <= 6) return "exp";
+    return "money";
+};
