@@ -1,4 +1,22 @@
-const { PlayerDb } = require('../databases/playerdb');
+const { PlayerDb } = require('../databases/playerdb.js');
+const { ServerDb } = require('../databases/serverdb.js');
+
+async function getOrAddServer(serverId){
+    await ServerDb.findOrCreate({
+        where: {
+            server_id: serverId
+        }
+    });
+};
+
+async function getOrAddMember(userId) {
+    const foundPlayer = await PlayerDb.findOrCreate({
+        where: {
+            discord_user_id: userId
+        }
+    });
+    return foundPlayer
+};
 
 async function removeInventoryItem(playerId, itemId){
     const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: playerId } });
@@ -59,3 +77,10 @@ async function addChest(playerId, chestType){
         }
     })
 };
+
+/**
+ * TODO: 
+ * 2) function for dealing with setting exp
+ * 3) function for checking if the exp has expired (will be used for the job's commands)
+ * 
+ */

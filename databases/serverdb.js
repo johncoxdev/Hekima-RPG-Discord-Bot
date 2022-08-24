@@ -24,13 +24,4 @@ const ServerDb = sequelize.define('serverdb', {
         defaultValue: true
     }
 });
-module.exports = {
-    ServerDb,
-    async addServer(serverId){
-		await ServerDb.findOrCreate({
-            where: {
-			    server_id: serverId
-            }
-		});
-	}
-}
+module.exports = ServerDb;
