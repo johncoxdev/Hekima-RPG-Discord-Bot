@@ -1,6 +1,5 @@
 const { InteractionType, EmbedBuilder, codeBlock } = require('discord.js');
 const { PlayerDb } = require('../databases/playerdb.js');
-const { ServerDb } = require('../databases/serverdb.js');
 const { color } = require('../game-assets/gameconfig.js');
 const { getOrAddMember, getOrAddServer } = require('../game-assets/utilities.js');
 
@@ -22,7 +21,7 @@ module.exports = {
 		const command = commands.get(interaction.commandName);
 		if (!command) return;
 
-		//Get player and server from database, if they don't exist then create it.
+		//Get or create a player/server depending if they're on the database.
 		
 		const returnedPlayer = await getOrAddMember(interaction.user.id);
 

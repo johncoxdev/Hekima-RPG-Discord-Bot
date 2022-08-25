@@ -1,13 +1,8 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { color, message, invitems } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
+const { removeInventoryItem } = require('../../game-assets/utilities.js');
 /**
- * 
- * TODO: create a removeInventoryItem() & removeChest() in utilities.js
- * async removeInventoryItem(userId, itemId)
- * async removeChest(userId, chestType)
- * 
- * 
  * A command that will use the item that the player is wanting
  * to use from their inventory. This will reduce the item by
  * 1 within the database. This will also update the time, if
@@ -90,26 +85,45 @@ module.exports = {
                     "active": true,
                     "amount": expAmount,
                     "time": newTime
-                }
+                };
 
-                //removes item
-                playerInventory[playerChoice] -= 1;
-                playerMultis['exp_multiplier'] = newExpMultiplier
+                //Hardcoded sets users new multiplier
+                playerMultis['exp_multiplier'] = newExpMultiplier;
                 
-                await PlayerDb.update({
-                    inventory: playerInventory,
-                    multipliers: playerMultis
-                },{
-                    where: {
-                        discord_user_id: interaction.user.id
-                    }
-                });
-                interaction.reply({ embeds: [boosterSetEmbed]});
+                interaction.reply({ embeds: [boosterSetEmbed]}); 
+
+            } else if (boosterType(playerChoice) = 'money') {
+                //This deals with the money booster
+
+                const moneyAmount = invitems.info[playerChoice].money_amount;
+
+                if (moneyMultiplier['acitve']) return interaction.reply({ embeds: [boosterActiveEmbed] });
+
+                const newMoneyMultiplier = {
+                    "active": true,
+                    "amount": moneyAmount,
+                    "time": newTime
+                };
+
+                playerMultis['money_multiplier'] = newMoneyMultiplier; 
+
+                interaction.reply({ embeds: [boosterSetEmbed]});  
             }
         } else {
             //If it is not a booster, we are going to be handling a ore object and we have to sell it with the 
             //possible boost that the player may have.
         }
+        
+        await removeInventoryItem(interaction.user.id, playerChoice)
+
+        await PlayerDb.update({
+            multipliers: playerMultis
+        },{
+            where: {
+                discord_user_id: interaction.user.id
+            }
+        });
+        interaction.reply({ embeds: [boosterSetEmbed]});        
     }
 }
 
