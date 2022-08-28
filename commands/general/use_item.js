@@ -51,17 +51,6 @@ module.exports = {
             .setTitle("Booster Activated!") 
             .setColor(color.success)
 
-
-        /**
-         * My thoughts:
-         * 
-         * - I'm going to check if the user even has an item
-         * - I'm going to then check if the item is a booster with the isBooster() function
-         * - I'm going to then check the type of booster to access all the correct information
-         * with the gameconfig.
-         * 
-         */
-
         
         //first check if they even have something to use.
         if (playerInventory[playerChoice] <= 0) return interaction.reply({ embeds: [noItemEmbed] });
