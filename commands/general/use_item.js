@@ -81,12 +81,12 @@ module.exports = {
                 
                 interaction.reply({ embeds: [boosterSetEmbed]}); 
 
-            } else if (boosterType(playerChoice) = 'money') {
+            } else if (boosterType(playerChoice) == 'money') {
                 //This deals with the money booster
 
                 const moneyAmount = invitems.info[playerChoice].money_amount;
 
-                if (moneyMultiplier['acitve']) return interaction.reply({ embeds: [boosterActiveEmbed] });
+                if (moneyMultiplier['active']) return interaction.reply({ embeds: [boosterActiveEmbed] });
 
                 const newMoneyMultiplier = {
                     "active": true,
@@ -111,8 +111,7 @@ module.exports = {
             where: {
                 discord_user_id: interaction.user.id
             }
-        });
-        interaction.reply({ embeds: [boosterSetEmbed]});        
+        });    
     }
 }
 

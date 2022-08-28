@@ -137,13 +137,15 @@ const PlayerDb = sequelize.define('player', {
     chest: {
         type: Sequelize.JSON,
         defaultValue: {
-            "common": 1,
+            "common": 5,
             "uncommon": 0,
-            "rare": 0,
+            "rare": 5,
             "epic": 0,
             "mythical": 0
         }
     }
 });
 
-module.exports = PlayerDb;
+module.exports = {
+    PlayerDb
+}

@@ -28,7 +28,6 @@ module.exports = {
 		const returnedServer = await getOrAddServer(interaction.guildId);
 
 		const foundPlayer = returnedPlayer[0];
-		const foundServer = returnedServer[0];
 
         //If member is a first time user, then send them this message and update the database.
         const firstTimeEmbed = new EmbedBuilder()

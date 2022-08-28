@@ -24,4 +24,6 @@ const ServerDb = sequelize.define('serverdb', {
         defaultValue: true
     }
 });
-module.exports = ServerDb;
+module.exports = {
+    ServerDb
+}
