@@ -22,28 +22,29 @@ dotenv: [Click here](https://www.npmjs.com/package/dotenv)
 ## Completion list
 
 Commands:
-- [] /mining
-- [] /farming  
-- [] /hunting  
-- [] /fishing  
-- [] /lumbering  
-- [] /stats <tools/jobs>  
+- [ ] /mining
+- [ ] /farming  
+- [ ] /hunting  
+- [ ] /fishing  
+- [ ] /lumbering  
+- [ ] /stats <tools/jobs>  
 - [x] /inventory  
 - [x] /use_item <id>  
-- [] /boosters  
+- [ ] /boosters  
 - [x] /chest  
 - [x] /open_chest <type>  
-- [] /quest  
-- [] /start_quest <difficulty>    
-- [] /shop  
-- [] /buy_item <id>  
+- [ ] /quest  
+- [ ] /start_quest <difficulty>    
+- [ ] /shop  
+- [ ] /buy_item <id>  
 - [x] /prestige  
 - [x] /daily  
 - [x] /weekly  
-- [] /leaderboards  
-- [] /settings  
-Features: 
-- [] voting api
+- [ ] /leaderboards  
+- [ ] /settings  
+  
+Features:  
+- [ ] voting api
 
 ----------
 ## Commands:
