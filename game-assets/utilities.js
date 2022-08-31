@@ -47,7 +47,11 @@ module.exports = {
             }
         })
     },
-
+    /**
+     * 
+     * @param {String || LongInt} playerId 
+     * @param {String} chestType 
+     */
     async removeChest(playerId, chestType){
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: playerId } });
         const playerChests = foundPlayer.chest;
@@ -62,7 +66,11 @@ module.exports = {
             }
         })
     },
-
+    /**
+     * 
+     * @param {String || LongInt} playerId 
+     * @param {String} chestType 
+     */
     async addChest(playerId, chestType){
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: playerId } });
         const playerChests = foundPlayer.chest;
@@ -76,12 +84,28 @@ module.exports = {
                 discord_user_id: playerId
             }
         })
-    }
+    },
+
+    /**
+     * 
+     * @param {*} userId 
+     * @returns Array<Money:Boolean, Exp:Boolean>
+     */
+    async isMoneyMultiplierExpired(userId){
+        let finalOutput = Array(2);
+        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: playerId } });
+        const playerMultipliers = foundPlayer.multipliers;
+        const currentTime = Math.floor(Date.now()/1000);
+        finalOutput[0] = (currentTime > playerMultipliers['money_multiplier']['time']) ? true : false;
+        finalOutput[1] = (currentTime > playerMultipliers['exp_multiplier']['time']) ? true : false;
+        return finalOutput;
+    }   
 }
+
+
 
 /**
  * TODO: 
  * 2) function for dealing with setting exp
- * 3) function for checking if the exp has expired (will be used for the job's commands)
  * 
  */
