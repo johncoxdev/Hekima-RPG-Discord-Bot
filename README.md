@@ -19,6 +19,32 @@ Sequelize ORM: [Click Here](https://www.npmjs.com/package/sequelize)
 sqlite3: [Click Here](https://www.npmjs.com/package/sqlite3)  
 dotenv: [Click here](https://www.npmjs.com/package/dotenv)
 
+## Completion list
+
+Commands:
+- [] /mining
+- [] /farming  
+- [] /hunting  
+- [] /fishing  
+- [] /lumbering  
+- [] /stats <tools/jobs>  
+- [x] /inventory  
+- [x] /use_item <id>  
+- [] /boosters  
+- [x] /chest  
+- [x] /open_chest <type>  
+- [] /quest  
+- [] /start_quest <difficulty>    
+- [] /shop  
+- [] /buy_item <id>  
+- [x] /prestige  
+- [x] /daily  
+- [x] /weekly  
+- [] /leaderboards  
+- [] /settings  
+Features: 
+- [] voting api
+
 ----------
 ## Commands:
 
