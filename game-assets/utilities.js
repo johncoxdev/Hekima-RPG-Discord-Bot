@@ -125,6 +125,5 @@ module.exports = {
 
 /**
  * TODO: 
- * 2) function for dealing with setting exp
- * 
+ * 2) function for dealing with setting exp.
  */
