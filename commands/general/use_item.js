@@ -62,6 +62,7 @@ module.exports = {
             const randomMin = Math.floor(Math.random() * (maxMin-minMin+1)+maxMin);
             const currentTime = Math.floor(Date.now()/1000);
             const newTime = currentTime + (60*randomMin);
+            boosterSetEmbed.data.footer = { text: `You were given ${randomMin} minutes!` }
 
             //Then we get all the global items, but we're still going to have to check what type of booster it is.
             if(boosterType(playerChoice) == "exp"){

@@ -30,7 +30,7 @@ Commands:
 - [ ] /stats <tools/jobs>  
 - [x] /inventory  
 - [x] /use_item <id>  
-- [ ] /boosters  
+- [x] /boosters  
 - [x] /chest  
 - [x] /open_chest <type>  
 - [ ] /quest  

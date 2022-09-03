@@ -38,7 +38,7 @@ module.exports = {
 
         playerInventory[itemId] -= 1;
 
-        PlayerDb.update({
+        await PlayerDb.update({
             inventory: playerInventory
         }, {
             where: {
@@ -58,7 +58,7 @@ module.exports = {
 
         playerInventory[itemId] += 1;
 
-        PlayerDb.update({
+        await PlayerDb.update({
             inventory: playerInventory
         }, {
             where: {
@@ -77,7 +77,7 @@ module.exports = {
 
         playerChests[chestType] -= 1;
 
-        PlayerDb.update({
+        await PlayerDb.update({
             inventory: playerInventory
         }, {
             where: {
@@ -96,7 +96,7 @@ module.exports = {
 
         playerChests[chestType] += 1;
 
-        PlayerDb.update({
+        await PlayerDb.update({
             inventory: playerInventory
         }, {
             where: {
@@ -108,16 +108,40 @@ module.exports = {
     /**
      * 
      * @param {BigInt} userId 
-     * @returns Array<Money:Boolean, Exp:Boolean>
      */
-    async isMoneyExpired(userId){
-        let finalOutput = Array(2);
-        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: playerId } });
+    async updateBoosterInfo(userId){
+        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId } });
         const playerMultipliers = foundPlayer.multipliers;
         const currentTime = Math.floor(Date.now()/1000);
-        finalOutput[0] = (currentTime > playerMultipliers['money_multiplier']['time']) ? true : false;
-        finalOutput[1] = (currentTime > playerMultipliers['exp_multiplier']['time']) ? true : false;
-        return finalOutput;
+        const moneyTime = playerMultipliers['money_multiplier']['time']
+        const expTime = playerMultipliers['exp_multiplier']['time']
+        isMoneyMultiDone = (currentTime > moneyTime) ? true : false;
+        isExpMultiDone = (currentTime > expTime) ? true : false;
+        
+        if (isMoneyMultiDone && moneyTime > 1){
+            playerMultipliers['money_multiplier'] = {   
+                "active": false,
+                "amonut": 0.0,
+                "time": 0
+            }
+            console.log("Called1")
+        }
+        if (isExpMultiDone && moneyTime > 1){
+            playerMultipliers['exp_multiplier'] = {
+                "active": false,
+                "amonut": 0.0,
+                "time": 0
+            }
+            console.log("called")
+        }
+        if (isExpMultiDone || isMoneyMultiDone){
+            await PlayerDb.update({
+                multipliers: playerMultipliers
+            }, { where: {
+                discord_user_id: userId
+                }
+            });
+        }
     }   
 }
 
