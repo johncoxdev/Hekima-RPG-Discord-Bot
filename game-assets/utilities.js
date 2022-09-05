@@ -78,7 +78,7 @@ module.exports = {
         playerChests[chestType] -= 1;
 
         await PlayerDb.update({
-            inventory: playerInventory
+            chest: playerChests
         }, {
             where: {
                 discord_user_id: playerId
@@ -97,7 +97,7 @@ module.exports = {
         playerChests[chestType] += 1;
 
         await PlayerDb.update({
-            inventory: playerInventory
+            chest: playerChests
         }, {
             where: {
                 discord_user_id: playerId
@@ -142,12 +142,30 @@ module.exports = {
                 }
             });
         }
-    }   
+    },
+    async isQuestComplete(userId){
+        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
+        const playerQuest = foundPlayer.quests;
+        const currentTime = Math.floor(Date.now()/1000);
+        const questActive = playerQuest['active'];
+        const questTime = playerQuest['time'];
+        
+        if (questActive && (currentTime > questTime)) return true;
+        return false;
+    },
+
+    async getQuestLevel(userId){
+        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
+        const playerQuest = foundPlayer.quests;
+        const questLevel = playerQuest['level'];
+        return questLevel
+    }
 }
 
 
 
 /**
  * TODO: 
- * 2) function for dealing with setting exp.
+ * 1) function for dealing with setting exp.
+ * 2) check if player survived their quest based on their armor level.
  */

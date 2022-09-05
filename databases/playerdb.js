@@ -20,6 +20,14 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.BIGINT,
         defaultValue: 0
     },
+    quests: {
+        type: Sequelize.JSON,
+        defaultValue: {
+            "quest_active": false,
+            "quest_level": 0,
+            "time": 0
+        }
+    },
     multipliers: {
         type: Sequelize.JSON,
         defaultValue: {

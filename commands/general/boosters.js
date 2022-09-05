@@ -42,13 +42,13 @@ module.exports = {
                 boostersEmbed.data.fields.push({
                     name: multiplierType.replace("_", " "),
                     value: `**Active:** ${multiplierActive} \n**Boost Amount:** ${multiplierAmount} \n**Boost ends in:** <t:${multiplierTime}:R>`,
-                    inline: true         
+                    inline: false         
                 });
             }else{
                 boostersEmbed.data.fields.push({
                     name: multiplierType.replace("_", " "),
                     value: 'No Booster active!',
-                    inline: true         
+                    inline: false        
                 });
             }
         }

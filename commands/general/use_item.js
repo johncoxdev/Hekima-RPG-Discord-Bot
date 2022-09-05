@@ -44,7 +44,7 @@ module.exports = {
             .setTitle("You don't have any of this item to use!")
             .setColor(color.failed);
         const boosterActiveEmbed = new EmbedBuilder()
-            .setTitle("Active Booster!")
+            .setTitle("You already have an active booster!")
             .setColor(color.failed)
             .setDescription(message.multiplier_active);
         const boosterSetEmbed = new EmbedBuilder()

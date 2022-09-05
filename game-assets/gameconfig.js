@@ -21,7 +21,12 @@ module.exports = {
             "8": "<:ID_8:1007754559931809812>",
             "9": "<:emerald:1007503844286136392>",
             "10": "<:firestone:1007503845808676896>",
-            "11": "<:crystal:1007503842948165652>"
+            "11": "<:crystal:1007503842948165652>",
+            "common": "<:common:1007039905077141564>",
+            "uncommon": "<:uncommon:1007039908218675391>",
+            "rare": "<:rare:1007503664954486784>",
+            "epic": "<:epic:1007039907279155220>",
+            "mythical": "<:mythical:1007039906167672852>",
         },
         "name": {
             "1": "Booster exp 1.25x (10-15 mins)",
@@ -35,6 +40,11 @@ module.exports = {
             "9": "Emerald",
             "10": "Firestone",
             "11": "Crystal",
+            "common": "Common Chest",
+            "uncommon": "Uncommon Chest",
+            "rare": "Rare Chest",
+            "epic": "Epic Chest",
+            "mythical": "Mythical Chest"
         },
         "info": {
             "1": {
@@ -161,6 +171,22 @@ module.exports = {
                 "trout": 35,
                 "nothing": 5,
                 "grouper": 75
+            }
+        },
+        "farming": {
+            "chances": {
+                "chili": 45,
+                "carrot": 25,
+                "potato": 15,
+                "tomato": 10,
+                "pumpkin": 5
+            },
+            "exp": {
+                "chili": 5,
+                "carrot": 15,
+                "potato": 25,
+                "tomato": 75,
+                "pumpkin": 100
             }
         },
         "mining": {
