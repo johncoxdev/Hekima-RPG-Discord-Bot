@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, loottable, invitems, crate } = require('../../game-assets/gameconfig.js');
+const { color, loottable, itemInfo, crate } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 /**
  * This command will allow the user to open a chest, if they
@@ -75,7 +75,7 @@ module.exports = {
         for (x = 0; x < randomAmt; x++){
             let itemId = get_random_tier(chest, randomNumber)
             inv[`${itemId}`] += 1
-            chestEmbed.data.description += `${invitems['emoji'][itemId]} **+1** ${invitems['name'][itemId]}\n`
+            chestEmbed.data.description += `${itemInfo['emoji'][itemId]} **+1** ${itemInfo['name'][itemId]}\n`
         }
 
         await PlayerDb.update({

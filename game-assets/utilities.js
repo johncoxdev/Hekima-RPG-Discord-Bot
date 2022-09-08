@@ -143,22 +143,34 @@ module.exports = {
             });
         }
     },
+
     async isQuestComplete(userId){
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
-        const playerQuest = foundPlayer.quests;
+        let playerQuest = foundPlayer.quests;
         const currentTime = Math.floor(Date.now()/1000);
         const questActive = playerQuest['active'];
         const questTime = playerQuest['time'];
         
-        if (questActive && (currentTime > questTime)) return true;
+        if (questActive && (currentTime > questTime)){
+
+            playerQuest = {
+                "active": false,
+                "level": 0,
+                "time": 0
+            }
+
+            await PlayerDb.update({
+                quests: playerQuesst
+            }, {
+                where: { discord_user_id: userId}
+            });
+            return true;
+        }
         return false;
     },
 
-    async getQuestLevel(userId){
-        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
-        const playerQuest = foundPlayer.quests;
-        const questLevel = playerQuest['level'];
-        return questLevel
+    async didPlayerSurvive(userId){
+        //...
     }
 }
 

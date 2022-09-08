@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, message, invitems } = require('../../game-assets/gameconfig.js');
+const { color, message, itemInfo } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 const { removeInventoryItem } = require('../../game-assets/utilities.js');
 /**
@@ -57,8 +57,8 @@ module.exports = {
 
         if (isBooster(playerChoice)){
 
-            const minMin = invitems.info[playerChoice].min;
-            const maxMin = invitems.info[playerChoice].max;
+            const minMin = itemInfo.info[playerChoice].min;
+            const maxMin = itemInfo.info[playerChoice].max;
             const randomMin = Math.floor(Math.random() * (maxMin-minMin+1)+maxMin);
             const currentTime = Math.floor(Date.now()/1000);
             const newTime = currentTime + (60*randomMin);
@@ -67,7 +67,7 @@ module.exports = {
             //Then we get all the global items, but we're still going to have to check what type of booster it is.
             if(boosterType(playerChoice) == "exp"){
 
-                const expAmount = invitems.info[playerChoice].exp_amount;
+                const expAmount = itemInfo.info[playerChoice].exp_amount;
 
                 if (expMultiplier['active']) return interaction.reply({ embeds: [boosterActiveEmbed] });
 
@@ -85,7 +85,7 @@ module.exports = {
             } else if (boosterType(playerChoice) == 'money') {
                 //This deals with the money booster
 
-                const moneyAmount = invitems.info[playerChoice].money_amount;
+                const moneyAmount = itemInfo.info[playerChoice].money_amount;
 
                 if (moneyMultiplier['active']) return interaction.reply({ embeds: [boosterActiveEmbed] });
 

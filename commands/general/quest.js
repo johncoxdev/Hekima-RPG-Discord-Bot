@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
-const { event, color, invitems } = require('../../game-assets/gameconfig.js');
+const { event, color, itemInfo } = require('../../game-assets/gameconfig.js');
 const { isQuestComplete, getQuestLevel, addChest } = require('../../game-assets/utilities.js');
 
 /**
@@ -15,12 +15,20 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('quest')
         .setDescription('Open quest menu.'),
-    async execute(interaction) {
+    async execute(interaction) { 
 
+        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
+        const playerQuest = foundPlayer.quests;
+
+        const QuestMenu = new EmbedBuilder()
+            .setTitle("Quest Menu")
+            .setColor(color.other)
+            .setFooter({ text: ""})
         
-        
-        
-        // Checks if quest is active and complete
+        if (playerQuest['active']){
+            QuestMenu.setDescription(`You're currently on a quest!\n You're quest will finish in, <t:${playerQuest['time']}:r>`)
+        }
+        // If quest is complete, set player data in db, and return Boolean.
         if (await isQuestComplete(interaction.user.id)){
             // await didPlayerSurvive(interaction.user.id)
             //If dead, dead embed.
@@ -41,7 +49,7 @@ module.exports = {
             for (x = 0; x < chestAmount; x++){
                 let resChestType = chestTypes[Math.floor(Math.random() * chestTypes.length)];
                 await addChest(interaction.user.id, resChestType)
-                questCompleteEmbed.data.description += `${invitems['emoji'][resChestType]} **1x** ${invitems['name'][resChestType]}`
+                questCompleteEmbed.data.description += `${itemInfo['emoji'][resChestType]} **1x** ${itemInfo['name'][resChestType]}`
             }
 
             interaction.reply({ embeds: [questCompleteEmbed], files: [survivedImg] })
