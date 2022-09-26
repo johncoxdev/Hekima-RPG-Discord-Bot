@@ -19,6 +19,7 @@ module.exports = {
 
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
         const playerQuest = foundPlayer.quests;
+        const playerItems = foundPlayer.items;
 
         const QuestMenu = new EmbedBuilder()
             .setTitle("Quest Menu")
@@ -30,10 +31,20 @@ module.exports = {
         }
         // If quest is complete, set player data in db, and return Boolean.
         if (await isQuestComplete(interaction.user.id)){
-            // await didPlayerSurvive(interaction.user.id)
-            //If dead, dead embed.
 
-            //If survived, get rewards.
+            //if the player died, just give them some exp
+            if (!didPlayerSurvive(playerItems, playerQuest['level'])) {
+                deathImage = new AttachmentBuilder('game-assets/game-images/emote/dead.png', { name: 'dead.png' });
+                const questFailed = new EmbedBuilder()
+                    .setTitle("Quest Failed!")
+                    .setDescription(`You died on your quest! Here is some exp for your hard work! \n**+${await giveExp(interaction.user.id, "armor")}**`)
+                    .setColor(color.failed)
+                    .setThumbnail(`attachment://${deathImage.name}`)
+
+                interaction.reply({ embeds: [questFailed], files: [survivedImg] })
+            }
+
+            //If survived, send message and get rewards.
             survivedImg = new AttachmentBuilder('game-assets/game-images/emote/survive.png', { name: 'survive.png' });
             const questCompleteEmbed = new EmbedBuilder()
                 .setTitle("Quest Completed!")
@@ -60,5 +71,17 @@ module.exports = {
 
 
     }
-    
+}
+
+
+async function didPlayerSurvive(playersItems, questLevel) {
+    const flatSurvivalRate = event['quest'][questLevel][survival_rate];
+    const playerHelmet = playersItems['helmet']['tier'] * 2;
+    const playerChestplate = playersItems['chestplate']['tier'] * 2;
+    const playerBoots = playersItems['boots']['tier'] * 2;
+    const totalSurvivalRate = flatSurvivalRate + playerHelmet + playerChestplate + playerBoots;
+    const randomNumber = Math.floor(Math.random() * 100);
+
+    if (randomNumber <= totalSurvivalRate) return true;
+    return false;
 }

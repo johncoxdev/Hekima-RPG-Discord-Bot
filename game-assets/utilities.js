@@ -144,6 +144,11 @@ module.exports = {
         }
     },
 
+    /**
+     * 
+     * @param {BigInt} userId 
+     * @returns Boolean
+     */
     async isQuestComplete(userId){
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
         let playerQuest = foundPlayer.quests;
@@ -169,8 +174,17 @@ module.exports = {
         return false;
     },
 
-    async didPlayerSurvive(userId){
-        //...
+    /**
+     * 
+     * @param {BigInt} userId 
+     * @param {String} type 
+     */
+    async giveItemExp(userId, type) {
+        //
+    },
+
+    async giveRandomMoney(userId) {
+        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
     }
 }
 

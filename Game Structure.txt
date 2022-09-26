@@ -14,6 +14,7 @@ What makes this game unieuq & endless:
 - Going to have levels within tiers (or to unlock them)
 - Maxed out tiers, so there is an end, but prestiege doesn't bring anything new (as of now)
 
+
 How dod you level up each tool/armor?
 - Pickaxes: Mining
 - Axe: Woodcutting/Lumber
@@ -92,6 +93,9 @@ Skins:
 - Quest [DONE]
 - Level up emote [DONE]
 - Rebirth emote [DONE]
+
+Armor: 
+Per tier armor will give a +2 percentage change on surviving the quest. Make of 60% in total due to 3 types of armor.
 
 
 Leveling Equation:
