@@ -127,18 +127,12 @@ const PlayerDb = sequelize.define('player', {
             },
             "helmet": {
                 "tier": 0,
-                "level": 0,
-                "exp": 0
             },
             "chesplate": {
                 "tier": 0,
-                "level": 0,
-                "exp": 0
             },
             "boots": {
-                "tier": 0,
-                "level": 0,
-                "exp": 0
+                "tier": 0
             }
         }
     },

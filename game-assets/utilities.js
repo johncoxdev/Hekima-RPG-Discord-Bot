@@ -185,6 +185,14 @@ module.exports = {
 
     async giveRandomMoney(userId) {
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
+        const playerMoney = foundPlayer['money'];
+        const randomMoneyAmt = Math.floor(Math.random() * 500);
+        await PlayerDb.update( {
+            money: playerMoney + randomMoneyAmt
+        }, {
+            where: { discord_user_id: userId }
+        });
+        return randomMoneyAmt;
     }
 }
 

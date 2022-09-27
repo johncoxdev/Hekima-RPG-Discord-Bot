@@ -1,7 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 const { event, color, itemInfo } = require('../../game-assets/gameconfig.js');
-const { isQuestComplete, getQuestLevel, addChest } = require('../../game-assets/utilities.js');
+const { isQuestComplete, getQuestLevel, addChest, giveRandomMoney } = require('../../game-assets/utilities.js');
 
 /**
  * This command is going to hold the following information.
@@ -27,7 +27,7 @@ module.exports = {
             .setFooter({ text: ""})
         
         if (playerQuest['active']){
-            QuestMenu.setDescription(`You're currently on a quest!\n You're quest will finish in, <t:${playerQuest['time']}:r>`)
+            QuestMenu.setDescription(`You're currently on a quest!\n You're quest will finish in, <t:${playerQuest['time']}:r>\n`)
         }
         // If quest is complete, set player data in db, and return Boolean.
         if (await isQuestComplete(interaction.user.id)){
@@ -37,7 +37,7 @@ module.exports = {
                 deathImage = new AttachmentBuilder('game-assets/game-images/emote/dead.png', { name: 'dead.png' });
                 const questFailed = new EmbedBuilder()
                     .setTitle("Quest Failed!")
-                    .setDescription(`You died on your quest! Here is some exp for your hard work! \n**+${await giveExp(interaction.user.id, "armor")}**`)
+                    .setDescription(`You died on your quest! Here is some petty petty cash for your efforts\n**+ $${await giveRandomMoney(interaction.user.id)}**`)
                     .setColor(color.failed)
                     .setThumbnail(`attachment://${deathImage.name}`)
 
