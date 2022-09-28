@@ -36,7 +36,7 @@ module.exports = {
         const notReady = new EmbedBuilder()
             .setTitle("Still on cooldown!")
             .setColor(color.failed)
-            .setDescription(`Please wait <t:${dailyCooldown}:R>`)
+            .setDescription(`You can claim your chest on <t:${dailyCooldown}:F>`)
 
         if (currentTime < dailyCooldown) return interaction.reply({ embeds: [notReady] });
 

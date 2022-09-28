@@ -23,9 +23,9 @@ const PlayerDb = sequelize.define('player', {
     quests: {
         type: Sequelize.JSON,
         defaultValue: {
-            "active": false,
-            "level": 0,
-            "time": 0
+            "active": true,
+            "level": 1,
+            "time": 1664405720
         }
     },
     multipliers: {
@@ -128,7 +128,7 @@ const PlayerDb = sequelize.define('player', {
             "helmet": {
                 "tier": 0,
             },
-            "chesplate": {
+            "chestplate": {
                 "tier": 0,
             },
             "boots": {

@@ -147,36 +147,6 @@ module.exports = {
     /**
      * 
      * @param {BigInt} userId 
-     * @returns Boolean
-     */
-    async isQuestComplete(userId){
-        const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId} });
-        let playerQuest = foundPlayer.quests;
-        const currentTime = Math.floor(Date.now()/1000);
-        const questActive = playerQuest['active'];
-        const questTime = playerQuest['time'];
-        
-        if (questActive && (currentTime > questTime)){
-
-            playerQuest = {
-                "active": false,
-                "level": 0,
-                "time": 0
-            }
-
-            await PlayerDb.update({
-                quests: playerQuesst
-            }, {
-                where: { discord_user_id: userId}
-            });
-            return true;
-        }
-        return false;
-    },
-
-    /**
-     * 
-     * @param {BigInt} userId 
      * @param {String} type 
      */
     async giveItemExp(userId, type) {
