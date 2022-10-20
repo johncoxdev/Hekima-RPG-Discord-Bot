@@ -33,7 +33,7 @@ Commands:
 - [x] /boosters  
 - [x] /chest  
 - [x] /open_chest <type>  
-- [ ] /quest  
+- [x] /quest  
 - [ ] /start_quest <difficulty>    
 - [ ] /shop  
 - [ ] /buy_item <id>  
@@ -41,7 +41,8 @@ Commands:
 - [x] /daily  
 - [x] /weekly  
 - [ ] /leaderboards  
-- [ ] /settings  
+- [ ] /settings
+- [x] /balance  
   
 Features:  
 - [ ] voting api
