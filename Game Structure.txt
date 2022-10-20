@@ -182,6 +182,7 @@ General:
     DONE - /daily <for Server boosters>
     DONE - /weekly <for regular members>
     - /leaderboards
+    - /balance
 Staff:
     - /settings
         - set_channel (for booster message)

@@ -25,7 +25,7 @@ const PlayerDb = sequelize.define('player', {
         defaultValue: {
             "active": true,
             "level": 1,
-            "time": 1664405720
+            "time": 1666170998
         }
     },
     multipliers: {
