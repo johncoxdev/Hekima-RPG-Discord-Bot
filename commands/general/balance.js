@@ -17,10 +17,10 @@ module.exports = {
         const playerBalance = foundPlayer.money;
         const moneyEmbed = new EmbedBuilder()
         .setTitle(`${interaction.user.username}'s Balance`)
-        .setFooter({ text: `${playerBalance}`})
+        .setFooter({ text: `$${Number(playerBalance).toLocaleString()}`})
         .setColor(color.other);
 
-        return interaction.reply({ embed: [moneyEmbed] });
-
+        return interaction.reply({ embeds: [moneyEmbed] });
+5
     }
 }

@@ -72,6 +72,7 @@ General:
   /daily
   /weekly
   /leaderboards
+  /balance
 Staff:
   /settings
       Options:
