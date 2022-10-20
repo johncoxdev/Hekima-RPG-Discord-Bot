@@ -14,8 +14,6 @@ module.exports = {
 
     async execute(interaction) {
 
-        if (interaction.user.id !== "957825927109279775") return interaction.reply("You cant do this command!"); 
-
         // Chest command -- In this command I'm aware of the changes between crate & chest. But in all cases they mean the same thing.
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
         const chest = foundPlayer.chest

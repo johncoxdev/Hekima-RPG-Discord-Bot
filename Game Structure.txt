@@ -174,7 +174,7 @@ General:
     - /boosters
     DONE - /chest
     DONE - /open_chest <chest -- choices>
-    - /quest
+    DONE - /quest
     - /start_quest <difficulty -- choices>
     - /shop
     - /buy_item <id>
@@ -182,7 +182,7 @@ General:
     DONE - /daily <for Server boosters>
     DONE - /weekly <for regular members>
     - /leaderboards
-    - /balance
+    DONE - /balance
 Staff:
     - /settings
         - set_channel (for booster message)
