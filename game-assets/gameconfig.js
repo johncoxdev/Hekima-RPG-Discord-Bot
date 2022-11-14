@@ -402,7 +402,7 @@ module.exports = {
                 "y_gap_per_level": 1.31
             }
         },
-        "fishing rod": {
+        "fishing_rod": {
             "exp": {
                 "x_exp_per_level": 0.343,
                 "y_gap_per_level": 2.03
@@ -412,6 +412,24 @@ module.exports = {
             "exp": {
                 "x_exp_per_level": 0.09,
                 "y_gap_per_level": 1.898
+            }
+        },
+        "helmet": {
+            "exp": {
+                "x_exp_per_level": 0.044,
+                "y_gap_per_level": 1.99
+            }
+        },
+        "chestplate": {
+            "exp": {
+                "x_exp_per_level": 0.044,
+                "y_gap_per_level": 1.99
+            }
+        },
+        "boots": {
+            "exp": {
+                "x_exp_per_level": 0.044,
+                "y_gap_per_level": 1.99
             }
         }
     }
