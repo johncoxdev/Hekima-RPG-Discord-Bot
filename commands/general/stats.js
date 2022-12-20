@@ -15,7 +15,7 @@ module.exports = {
             .setDescription("Choice between tools/armor or jobs")
             .setRequired(true)
             .setChoices({
-                name: "tools",
+                name: "tools_and_armor",
                 value: "items"
             },
             {
