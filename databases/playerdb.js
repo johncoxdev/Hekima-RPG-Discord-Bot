@@ -18,7 +18,7 @@ const PlayerDb = sequelize.define('player', {
     },
     money: {
         type: Sequelize.BIGINT,
-        defaultValue: 9231278349
+        defaultValue: 123456789
     },
     quests: {
         type: Sequelize.JSON,
@@ -27,6 +27,10 @@ const PlayerDb = sequelize.define('player', {
             "level": 1,
             "time": 1666170998
         }
+    },
+    prestige: {
+      type: Sequelize.BIGINT,
+      defaultValue: 0
     },
     multipliers: {
         type: Sequelize.JSON,
@@ -72,8 +76,7 @@ const PlayerDb = sequelize.define('player', {
             "fishing": {
                 "level": 0,
                 "exp": 0
-            },
-            "prestige": 0
+            }
         }
     },
     inventory: {

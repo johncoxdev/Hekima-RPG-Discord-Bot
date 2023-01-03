@@ -7,17 +7,22 @@ my process of planning and current thoughts are on this project. This bot does n
 learning pruposes.
 
 ----------
-## Credits:
+## Customization:  
+
+If a user is going to locally/personally host the bot then they're able to customize the RPG bot to their desire within the `gameconfig.js` file. Users are allowed to customize the icon pictures (Discord emojis), experience points for jobs, weapons, and tools, change the difficulty of quest, and much more. 
+
+----------
+## Credits:  
 All images are from [craftpix](https://craftpix.net/) using their various packs. 
 I do not take any credit for any of the artwork that is provided within this project.
 
 ----------
 ## What I used for this project:  
-Discord.js V14: [Click Here](https://www.npmjs.com/package/discord.js?source=post_page-----7b5fe27cb6fa----------------------)  
-@discordjs/rest: [Click Here](https://www.npmjs.com/package/@discordjs/rest)  
-Sequelize ORM: [Click Here](https://www.npmjs.com/package/sequelize)  
-sqlite3: [Click Here](https://www.npmjs.com/package/sqlite3)  
-dotenv: [Click here](https://www.npmjs.com/package/dotenv)
+Discord.js 14.2.0: [Click Here](https://www.npmjs.com/package/discord.js?source=post_page-----7b5fe27cb6fa----------------------)  
+@discordjs/rest 1.0.1: [Click Here](https://www.npmjs.com/package/@discordjs/rest)  
+Sequelize ORM 6.21.3: [Click Here](https://www.npmjs.com/package/sequelize)  
+sqlite3 5.0.11: [Click Here](https://www.npmjs.com/package/sqlite3)  
+dotenv 16.0.1: [Click here](https://www.npmjs.com/package/dotenv)
 
 ## Completion list
 
@@ -40,7 +45,7 @@ Commands:
 - [x] /prestige  
 - [x] /daily  
 - [x] /weekly  
-- [ ] /leaderboards  
+- [x] /leaderboards  
 - [ ] /settings
 - [x] /balance  
   

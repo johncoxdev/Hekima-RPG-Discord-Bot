@@ -45,9 +45,13 @@ module.exports = {
             }
         } else if ( chosenChoice == "perm_levels") {
           const playersJobs = foundPlayer.perm_levels;
+          const playerPrestige = foundPlayer.prestige;
+          statsEmbed.addFields({name: '**Prestige:** ', value: `${playerPrestige}`});
+
+          // loop through player's jobs and add them to stats.
           for ( job in playersJobs ) {
-            const expNeeded = (job == "prestige") ? -1 : (playersJobs[job].level/level_exp.x_exp_per_level)**level_exp.y_gap_per_level
-            const jobDesc = (job == "prestige") ? `**Prestige:** ${playersJobs[job]}` : `**Level:** ${playersJobs[job].level} \n**Experience:** ${playersJobs[job].exp}/${expNeeded}`
+            const expNeeded = (playersJobs[job].level/level_exp.x_exp_per_level)**level_exp.y_gap_per_level
+            const jobDesc = `**Level:** ${playersJobs[job].level} \n**Experience:** ${playersJobs[job].exp}/${expNeeded}`
 
             currItem = {
               name: `${job}`,
@@ -56,7 +60,7 @@ module.exports = {
             itemList.push(currItem) 
           }
         }
-        statsEmbed.addFields(itemList)
+        statsEmbed.setFields(itemList)
         statsEmbed.setColor(color.other);
         return interaction.reply({ embeds: [statsEmbed] });
     }
