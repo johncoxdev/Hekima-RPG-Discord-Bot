@@ -369,7 +369,7 @@ module.exports = {
     },
     "level_exp": {
         "x_exp_per_level": 0.044,
-        "y_gap_per_level": 1.99
+        "y_gap_per_level": 2.01
     },
     "upgrade": {
         "all": {

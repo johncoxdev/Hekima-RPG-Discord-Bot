@@ -27,7 +27,7 @@ Commands:
 - [ ] /hunting  
 - [ ] /fishing  
 - [ ] /lumbering  
-- [ ] /stats <tools/jobs/armor>  
+- [x] /stats <tools/jobs/armor>  
 - [x] /inventory  
 - [x] /use_item <id>  
 - [x] /boosters  
