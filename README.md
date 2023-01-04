@@ -27,11 +27,11 @@ dotenv 16.0.1: [Click here](https://www.npmjs.com/package/dotenv)
 ## Completion list
 
 Commands:
-- [ ] /mining
-- [ ] /farming  
-- [ ] /hunting  
-- [ ] /fishing  
-- [ ] /lumbering  
+- [ ] /mine
+- [ ] /farm  
+- [ ] /hunt  
+- [ ] /fish  
+- [ ] /lumber  
 - [x] /stats <tools/jobs/armor>  
 - [x] /inventory  
 - [x] /use_item <id>  
@@ -39,7 +39,7 @@ Commands:
 - [x] /chest  
 - [x] /open_chest <type>  
 - [x] /quest  
-- [ ] /start_quest <difficulty>    
+- [x] /start_quest <difficulty>    
 - [ ] /shop  
 - [ ] /buy_item <id>  
 - [x] /prestige  
@@ -58,11 +58,11 @@ Features:
 <> = required
 ```
 General:
-  /mining
-  /farming
-  /hunting
-  /fishing
-  /lumbering
+  /mine
+  /farm
+  /hunt
+  /fish
+  /lumber
   /stats <tools/jobs>
   /inventory
   /use_item <id>

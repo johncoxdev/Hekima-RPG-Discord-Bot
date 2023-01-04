@@ -9,7 +9,7 @@ const sequelize = require('./initdb.js');
 
 const PlayerDb = sequelize.define('player', {
     discord_user_id: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.STRING,
         unique: true
     },
     first_time_user: {
@@ -17,14 +17,14 @@ const PlayerDb = sequelize.define('player', {
         defaultValue: true
     },
     money: {
-        type: Sequelize.BIGINT,
-        defaultValue: 123456789
+        type: Sequelize.STRING,
+        defaultValue: '0'
     },
     quests: {
         type: Sequelize.JSON,
         defaultValue: {
             "active": true,
-            "level": 1,
+            "level": 5,
             "time": 1666170998
         }
     },

@@ -108,7 +108,6 @@ module.exports = {
     },
     "message": {
         "not_booster": "You are not a server booster! Only server boosters are allowed to use this command!",
-        "quest_active": "You already have an active quest!",
         "multiplier_active": "You already have that type of multipler active! Check /boosters",
         "booster_set": "You have set your %TYPE% booster! Check /boosters"
     },

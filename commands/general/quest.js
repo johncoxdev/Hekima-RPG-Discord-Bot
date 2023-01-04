@@ -71,11 +71,11 @@ module.exports = {
         const playerSurvivalPercentage = playerSurvivalRatePerQuest(playerItems, event['quest'])
 
         questMenu.data.description += `**Quest Menu**
-        ${itemInfo['emoji']['quest1']} ** | ** Time: 1H ** | ** Your Survival Rate: ${playerSurvivalPercentage[0]}
-        ${itemInfo['emoji']['quest2']} ** | ** Time: 6H ** | ** Your Survival Rate: ${playerSurvivalPercentage[1]}
-        ${itemInfo['emoji']['quest3']} ** | ** Time: 12H ** | ** Your Survival Rate: ${playerSurvivalPercentage[2]}
-        ${itemInfo['emoji']['quest4']} ** | ** Time: 24H ** | ** Your Survival Rate: ${playerSurvivalPercentage[3]}
-        ${itemInfo['emoji']['quest5']} ** | ** Time: 48H ** | ** Your Survival Rate: ${playerSurvivalPercentage[4]}`
+        ${itemInfo['emoji']['quest1']} ** | ** 1 ** | ** Time: 1H ** | ** Your Survival Rate: ${playerSurvivalPercentage[0]}
+        ${itemInfo['emoji']['quest2']} ** | ** 2 ** | ** Time: 6H ** | ** Your Survival Rate: ${playerSurvivalPercentage[1]}
+        ${itemInfo['emoji']['quest3']} ** | ** 3 ** | ** Time: 12H ** | ** Your Survival Rate: ${playerSurvivalPercentage[2]}
+        ${itemInfo['emoji']['quest4']} ** | ** 4 ** | ** Time: 24H ** | ** Your Survival Rate: ${playerSurvivalPercentage[3]}
+        ${itemInfo['emoji']['quest5']} ** | ** 5 ** | ** Time: 48H ** | ** Your Survival Rate: ${playerSurvivalPercentage[4]}`
 
         questMenu.data.footer.text = "To do a quest do /start_quest"
         
