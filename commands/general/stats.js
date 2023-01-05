@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 name: "jobs",
-                value: "perm_levels"
+                value: "jobs"
             })),
 
     async execute(interaction) {
@@ -34,7 +34,7 @@ module.exports = {
             statsEmbed.setTitle(`${interaction.user.username} Item's Stats`)
             for ( item in playersItems ) {
                 const expNeeded = (playersItems[item].level/upgrade[item].exp.x_exp_per_level)**upgrade[item].exp.y_gap_per_level;
-                const itemDesc = (item == "helmet" || item == "chestplate" || item == "boots" ) ? `**Tier:** ${playersItems[item].tier}` : `**Tier:** ${playersItems[item].tier} **Level:** ${playersItems[item].level} \n**Experience:** ${playersItems[item].exp}/${expNeeded}`
+                const itemDesc = (item == "helmet" || item == "chestplate" || item == "boots" ) ? `**Tier:** ${playersItems[item].tier}` : `**Tier:** ${playersItems[item].tier} **Level:** ${playersItems[item].level} \n**Experience:** ${Number(playersItems[item].exp).toLocaleString()}/${Number(expNeeded).toLocaleString()}`
                 
 
                 currItem = {
@@ -43,15 +43,15 @@ module.exports = {
                 }
                 itemList.push(currItem)          
             }
-        } else if ( chosenChoice == "perm_levels") {
-          const playersJobs = foundPlayer.perm_levels;
+        } else if ( chosenChoice == "jobs") {
+          const playersJobs = foundPlayer.jobs;
           const playerPrestige = foundPlayer.prestige;
           statsEmbed.addFields({name: '**Prestige:** ', value: `${playerPrestige}`});
 
           // loop through player's jobs and add them to stats.
           for ( job in playersJobs ) {
             const expNeeded = (playersJobs[job].level/level_exp.x_exp_per_level)**level_exp.y_gap_per_level
-            const jobDesc = `**Level:** ${playersJobs[job].level} \n**Experience:** ${playersJobs[job].exp}/${expNeeded}`
+            const jobDesc = `**Level:** ${playersJobs[job].level} \n**Experience:** ${Number(playersJobs[job].exp).toLocaleString()}/${Number(expNeeded).toLocaleString()}`
 
             currItem = {
               name: `${job}`,
