@@ -23,9 +23,9 @@ const PlayerDb = sequelize.define('player', {
     quests: {
         type: Sequelize.JSON,
         defaultValue: {
-            "active": true,
-            "level": 5,
-            "time": 1666170998
+            "active": false,
+            "level": 0,
+            "time": 0
         }
     },
     prestige: {
@@ -54,28 +54,28 @@ const PlayerDb = sequelize.define('player', {
             "weekly_claim": 0,
         }
     },
-    perm_levels: {
+    jobs: {
         type: Sequelize.JSON,
         defaultValue: {
             "lumber": {
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
-            "mining": {
+            "mine": {
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
-            "farming": {
+            "farm": {
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
-            "hunting": {
+            "hunt": {
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
-            "fishing": {
+            "fish": {
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             }
         }
     },
@@ -99,43 +99,43 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.JSON,
         defaultValue: {
             "sword": {
-                "tier": 0,
+                "tier": 1,
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
             "bow": {
-                "tier": 0,
+                "tier": 1,
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
             "pickaxe": {
-                "tier": 0,
+                "tier": 1,
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
             "axe": {
-                "tier": 0,
+                "tier": 1,
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
             "fishing_rod": {
-                "tier": 0,
+                "tier": 1,
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
             "hoe": {
-                "tier": 0,
+                "tier": 1,
                 "level": 0,
-                "exp": 0
+                "exp": '0'
             },
             "helmet": {
-                "tier": 0,
+                "tier": 1
             },
             "chestplate": {
-                "tier": 0,
+                "tier": 1
             },
             "boots": {
-                "tier": 0
+                "tier": 1
             }
         }
     },

@@ -1,15 +1,15 @@
 module.exports = {
     "color": {
         "lumber": "543413",
-        "farming": "ff9b0f",
-        "mining": "858585",
-        "hunting": "8f3b3b",
-        "fishing": "297eff",
+        "farm": "ff9b0f",
+        "mine": "858585",
+        "hunt": "8f3b3b",
+        "fish": "297eff",
         "success": "1aff00",
         "failed": "c90000",
         "other": "d0ff8a"
     },
-    "itemInfo": {
+    "IconEmoji": {
         "emoji": {
             "1": "<:ID_1:1007754508329287720>",
             "2": "<:ID_2:1007754509688254525>",
@@ -32,6 +32,31 @@ module.exports = {
             "quest3": "<:quest_3:1007763077711806505>",
             "quest4": "<:quest_4:1007763079234334720> ",
             "quest5": "<:quest_5:1007763080068989037>",
+            "stone": "<:stone:1007503851202556005>",
+            "coal": "<:coal:1007503840846823565> ",
+            "copper": "<:copper:1007503841937330266>",
+            "iron": "<:iron:1007503847700299776>",
+            "gold": "<:gold:1007503846601392138>",
+            "silver": "<:silver:1007503850367885372>",
+            "platinum": "<:platinum:1007503848669188116>",
+            "vibrance": "<:vibrance:1007503852402114590>",
+            "diamond": "<:diamond:1007503843703148554>",
+            "rawsteel": "<:rawsteel:1007503849457721494>",
+            "emerald": "<:emerald:1007503844286136392>",
+            "firestone": "<:firestone:1007503845808676896>",
+            "crystal": "<:crystal:1007503842948165652>",
+            "wood": "<:wood:1008629458669944862>",
+            "egg": "<:egg:1008629433030164520>",
+            "lamb": "<:lamb:1008629434112282644>",
+            "beef": "<:beef:1008629431771873401>",
+            "shrimp": "<:shrimp:1008629406408904796>",
+            "trout": "<:trout:1008629407478464532>", 
+            "grouper": "<:grouper:1008629404974469191>", 
+            "redchili": "<:redchili:1008629379116576879>", 
+            "carrot": "<:carrot:1008629374263762984>", 
+            "potato": "<:potato:1008629376323170304>", 
+            "tomato": "<:tomato:1008629379917684796>", 
+            "pumpkin": "<:pumpkin:1008629377258491904>",
         },
         "name": {
             "1": "Booster exp 1.25x (10-15 mins)",
@@ -108,9 +133,9 @@ module.exports = {
     },
     "message": {
         "not_booster": "You are not a server booster! Only server boosters are allowed to use this command!",
-        "multiplier_active": "You already have that type of multipler active! Check /boosters",
-        "booster_set": "You have set your %TYPE% booster! Check /boosters"
+        "multiplier_active": "You already have that type of multipler active! Check /boosters"
     },
+    "baseAmountGathered": 10,
     "event": {
         "quest": {
             "1": {
@@ -145,11 +170,17 @@ module.exports = {
              }
         },
         "lumber": {
+            "chances" : {
+              "wood": 100
+            },
             "exp": {
-                "wood": 5
+              "wood": 5
+            }, 
+            "money": { 
+              "wood": 50
             }
         },
-        "hunting": {
+        "hunt": {
             "chances": {
                 "nothing": 40,
                 "egg": 30,
@@ -161,9 +192,15 @@ module.exports = {
                 "egg": 15,
                 "lamb": 30,
                 "beef": 50
+            },
+            "money": {
+                "nothing": 0,
+                "egg": 25,
+                "lamb": 40,
+                "beef": 50
             }
         },
-        "fishing": {
+        "fish": {
             "chances": {
                 "shrimp": 55,
                 "trout": 25,
@@ -175,9 +212,15 @@ module.exports = {
                 "trout": 35,
                 "nothing": 5,
                 "grouper": 75
+            },
+            "money": {
+              "shrimp": 5,
+              "trout": 20,
+              "nothing": 0,
+              "grouper": 100
             }
         },
-        "farming": {
+        "farm": {
             "chances": {
                 "chili": 45,
                 "carrot": 25,
@@ -191,9 +234,16 @@ module.exports = {
                 "potato": 25,
                 "tomato": 75,
                 "pumpkin": 100
-            }
+            },
+            "money": {
+              "chili": 5,
+              "carrot": 15,
+              "potato": 25,
+              "tomato": 50,
+              "pumpkin": 250
+          }
         },
-        "mining": {
+        "mine": {
             "tier": {
                 "1": {
                     "stone": 87,
@@ -282,7 +332,7 @@ module.exports = {
                     "crystal": 1
                 }
             },
-            "prices": {
+            "money": {
                 "stone": 0.25,
                 "coal": 0.5,
                 "copper": 1,

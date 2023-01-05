@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
-const { event, color, itemInfo } = require('../../game-assets/gameconfig.js');
+const { event, color, IconEmoji } = require('../../game-assets/gameconfig.js');
 const { addChest, giveRandomMoney } = require('../../game-assets/utilities.js');
 
 /**
@@ -47,7 +47,7 @@ module.exports = {
                     for (x = 0; x < chestAmount; x++){
                         let resChestType = chestTypes[Math.floor(Math.random() * chestTypes.length)];
                         await addChest(interaction.user.id, resChestType)
-                        questCompleteEmbed.data.description += `${itemInfo['emoji'][resChestType]} **1x** ${itemInfo['name'][resChestType]}`
+                        questCompleteEmbed.data.description += `${IconEmoji['emoji'][resChestType]} **1x** ${IconEmoji['name'][resChestType]}`
                     }
                     interaction.channel.send({ embeds: [questCompleteEmbed], files: [survivedImg] })
                 } else {
@@ -71,11 +71,11 @@ module.exports = {
         const playerSurvivalPercentage = playerSurvivalRatePerQuest(playerItems, event['quest'])
 
         questMenu.data.description += `**Quest Menu**
-        ${itemInfo['emoji']['quest1']} ** | ** 1 ** | ** Time: 1H ** | ** Your Survival Rate: ${playerSurvivalPercentage[0]}
-        ${itemInfo['emoji']['quest2']} ** | ** 2 ** | ** Time: 6H ** | ** Your Survival Rate: ${playerSurvivalPercentage[1]}
-        ${itemInfo['emoji']['quest3']} ** | ** 3 ** | ** Time: 12H ** | ** Your Survival Rate: ${playerSurvivalPercentage[2]}
-        ${itemInfo['emoji']['quest4']} ** | ** 4 ** | ** Time: 24H ** | ** Your Survival Rate: ${playerSurvivalPercentage[3]}
-        ${itemInfo['emoji']['quest5']} ** | ** 5 ** | ** Time: 48H ** | ** Your Survival Rate: ${playerSurvivalPercentage[4]}`
+        ${IconEmoji['emoji']['quest1']} ** | ** 1 ** | ** Time: 1H ** | ** Your Survival Rate: ${playerSurvivalPercentage[0]}
+        ${IconEmoji['emoji']['quest2']} ** | ** 2 ** | ** Time: 6H ** | ** Your Survival Rate: ${playerSurvivalPercentage[1]}
+        ${IconEmoji['emoji']['quest3']} ** | ** 3 ** | ** Time: 12H ** | ** Your Survival Rate: ${playerSurvivalPercentage[2]}
+        ${IconEmoji['emoji']['quest4']} ** | ** 4 ** | ** Time: 24H ** | ** Your Survival Rate: ${playerSurvivalPercentage[3]}
+        ${IconEmoji['emoji']['quest5']} ** | ** 5 ** | ** Time: 48H ** | ** Your Survival Rate: ${playerSurvivalPercentage[4]}`
 
         questMenu.data.footer.text = "To do a quest do /start_quest"
         
@@ -103,8 +103,8 @@ function playerSurvivalRate (playersItems) {
 
 async function didPlayerSurvive(playersItems, questLevel) {
     const flatSurvivalRate = event['quest'][questLevel]['survival_rate'];
-    const plyrSurvivalRate = playerSurvivalRate(playersItems)
-    const totalSurvivalRate = flatSurvivalRate + plyrSurvivalRate;
+    const plyerSurvivalRate = playerSurvivalRate(playersItems)
+    const totalSurvivalRate = flatSurvivalRate + plyerSurvivalRate;
     let randomNumber = Math.floor(Math.random() * 100);
     return randomNumber <= totalSurvivalRate;
 }

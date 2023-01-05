@@ -22,7 +22,7 @@ module.exports = {
 
          const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
          const items = foundPlayer.items;
-         let permLevels = foundPlayer.perm_levels;
+         let permLevels = foundPlayer.jobs;
          const prestigeLevel = permLevels['prestige'];
          let notMaxed = "";
  
@@ -63,7 +63,7 @@ module.exports = {
  
          await PlayerDb.create({
              discord_user_id: interaction.user.id,
-             perm_levels: permLevels
+             jobs: permLevels
          });
 
     }
