@@ -1,6 +1,7 @@
+const { EmbedBuilder } = require('discord.js');
 const { PlayerDb } = require('../databases/playerdb.js');
 const { ServerDb } = require('../databases/serverdb.js');
-const { baseAmountGathered, event } = require('./gameconfig.js');
+const { baseAmountGathered, event, upgrade, level_exp } = require('./gameconfig.js');
 module.exports = {
     /**
      * 
@@ -173,13 +174,14 @@ module.exports = {
      * 
      */
     getJobItems(jobType, toolTier) {
+      let eventType = "";
       const amountItemGotten = baseAmountGathered + ((toolTier+1)*2);
       if (jobType === "mine") {
-        const eventType = event['mine']['tier'][toolTier]
+        eventType = event['mine']['tier'][toolTier]
       }
 
       else if (jobType === "farm") {
-
+ b
       }
 
       else if (jobType === "fish") {
@@ -202,7 +204,7 @@ module.exports = {
         let randomNumber = Math.floor(Math.random() * total_weight)
         for (const [itemType, chance] of Object.entries(eventType)) {
           if (randomNumber <= chance) {
-            itemsGathered[itemType] += 1
+            itemsGathered[itemType] = (itemsGathered[itemType]+1) || 1;
             break;
           }else{
             randomNumber -= chance
@@ -213,16 +215,28 @@ module.exports = {
 
     },
 
+    /**
+     * 
+     * @param {string} eventType 
+     * @param {Object} itemsRetrieved 
+     * @param {double} moneyBoost 
+     * @param {double} expBoost 
+     * @returns Object<money: number, exp: number, boostMoney: number, boostExp: number>
+     */
     getItemMoneyAndExp(eventType, itemsRetrieved, moneyBoost, expBoost){
       itemInfo = {
         'money': 0,
-        'exp': 0
+        'exp': 0,
+        'boostMoney': 0,
+        'boostExp': 0
       }
       for ( const [item, amount] of Object.entries(itemsRetrieved)) {
         moneyTotal = (event[eventType]['money'][item] * amount);
         expTotal = (event[eventType]['exp'][item] * amount);
         itemInfo['money'] += ( moneyTotal + (moneyTotal * moneyBoost))
         itemInfo['exp'] += (expTotal + (expTotal * expBoost))
+        itemInfo['boostMoney'] = (moneyTotal * moneyBoost);
+        itemInfo['boostExp'] = (moneyTotal * moneyBoost);
       }
       return itemInfo
     },
@@ -231,7 +245,22 @@ module.exports = {
         const levelX = upgrade[toolType]['x_exp_per_level'];
         const levelY = upgrade[toolType]['y_gap_per_level'];
         const levelMaxExp = (toolLevel/levelX)**levelY;
-        return toolExp >= toolExp
+        return toolExp >= levelMaxExp
+    },
+
+    checkIfJobPassLevel(jobLevel, jobExp){
+        const jobX = level_exp['x_exp_per_level'];
+        const jobY = level_exp['y_gap_per_level'];
+        const jobMaxExp = (jobLevel/jobX)**jobY;
+        return jobExp >= jobMaxExp
+    },
+
+    actionJobEmbedBuilder(actionColor, actionTitle, actionDesc){
+        const actionEmbed = new EmbedBuilder()
+        actionEmbed.setColor(actionColor)
+        actionEmbed.setTitle(actionTitle)
+        actionEmbed.setDescription(actionDesc)
+        return actionEmbed 
     }
 }
 

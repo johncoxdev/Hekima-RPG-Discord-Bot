@@ -1,7 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color } = require('../../game-assets/gameconfig.js');
+const { color, IconEmoji } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
-const { getJobItems, getItemMoneyAndExp, checkIfBoostIsExpired, updateBoosterInfo, checkIfToolPassLevel } = require('../../game-assets/utilities.js');
+const { getJobItems, getItemMoneyAndExp, updateBoosterInfo, checkIfToolPassLevel, checkIfJobPassLevel, actionJobEmbedBuilder } = require('../../game-assets/utilities.js');
 /**
  * Job component of gaining experience points and money
  * Specificically for mining. This file will be different
@@ -33,21 +33,40 @@ module.exports = {
         const moneyBoost = (playersMultipliers['exp_multiplier'])
         const expBoost = (playersMultipliers['money_multiplier'])
         const pickaxe = playersItems['pickaxe'];
-        // const pickaxeTier = pickaxe['tier'];
-        // const pickaxeExp = pickaxe['exp'];
-        // const pickaxeLevel = pickaxe['level'];
+        const mineJob = playersJobs['mine'];
 
         await updateBoosterInfo(interaction.user.id);
+
         const itemsRetrieved = getJobItems("mine", pickaxe['tier']);
         const moneyExpRetrieved = getItemMoneyAndExp("mine", itemsRetrieved, moneyBoost['amount'], expBoost['amount']);
-        //update tool exp/money in database
-        const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxe['exp'], pickaxe['level']);
-        // checkIfJobPassLevel()
-        // formatJob
-        /* formatEventEmbed(
-          - Should have option to add if Tool/Job leveled up
-        )
-        */
-        interaction.reply("mined!")
+        // We are just adding the exp to the current exp rather than updating the database to save time.
+        const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxe['exp'] + moneyExpRetrieved['exp'], pickaxe['level']);
+        const isJobPassLevel = checkIfJobPassLevel(mineJob['level'], mineJob['exp'] + moneyExpRetrieved['exp']);
+        const actionTitle = "Mining - You mined up..."
+        let actionDesc = `\u200B`;
+
+        for (const [item, amount] of Object.entries(itemsRetrieved)){
+          actionDesc += `${IconEmoji['emoji'][item]} **|** ${item}: ${amount} \n`
+        }
+
+        if (moneyExpRetrieved['boostMoney'] > 0) {
+          actionDesc += `**Boost Money:** +${moneyExpRetrieved['boostMoney']}`          
+        }
+
+        if (moneyExpRetrieved['boostExp'] > 0) {
+          actionDesc += `**Boost Exp:** +${moneyExpRetrieved['boostExp']}`          
+        }
+
+        if (isJobPassLevel) {
+          actionDesc += `\n**Your Mine job has leveled up!** \n ${mineJob['level']} -> **${mineJob['level'] + 1}**`
+        }
+        
+        if (isToolPassLevel) {
+          actionDesc += `\n **Your tool has leveled up!** \n ${pickaxe['level']} -> **${pickaxe['level'] + 1}**`
+        }
+
+        const actionEmbed = actionJobEmbedBuilder(color.mine, actionTitle, actionDesc);
+
+        interaction.reply({ embeds: [actionEmbed] });
     }
 }
