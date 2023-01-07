@@ -1,7 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { color } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
-const { getJobItems, getItemMoneyAndExp, checkIfBoostIsExpired, updateBoosterInfo } = require('../../game-assets/utilities.js');
+const { getJobItems, getItemMoneyAndExp, checkIfBoostIsExpired, updateBoosterInfo, checkIfToolPassLevel } = require('../../game-assets/utilities.js');
 /**
  * Job component of gaining experience points and money
  * Specificically for mining. This file will be different
@@ -33,16 +33,15 @@ module.exports = {
         const moneyBoost = (playersMultipliers['exp_multiplier'])
         const expBoost = (playersMultipliers['money_multiplier'])
         const pickaxe = playersItems['pickaxe'];
-        const pickaxeTier = pickaxe['tier'];
-        const pickaxeExp = pickaxe['exp'];
-        const pickaxeLevel = pickaxe['level'];
+        // const pickaxeTier = pickaxe['tier'];
+        // const pickaxeExp = pickaxe['exp'];
+        // const pickaxeLevel = pickaxe['level'];
 
         await updateBoosterInfo(interaction.user.id);
-        const itemsRetrieved = getJobItems("mine", pickaxeTier);
+        const itemsRetrieved = getJobItems("mine", pickaxe['tier']);
         const moneyExpRetrieved = getItemMoneyAndExp("mine", itemsRetrieved, moneyBoost['amount'], expBoost['amount']);
-        
-        // getToolExp()
-        // checkIfToolPassLevel()
+        //update tool exp/money in database
+        const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxe['exp'], pickaxe['level']);
         // checkIfJobPassLevel()
         // formatJob
         /* formatEventEmbed(

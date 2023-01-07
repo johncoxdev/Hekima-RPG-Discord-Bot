@@ -227,8 +227,11 @@ module.exports = {
       return itemInfo
     },
     
-    checkIfToolPassLevel(){
-      ;
+    checkIfToolPassLevel(toolType, toolExp, toolLevel){
+        const levelX = upgrade[toolType]['x_exp_per_level'];
+        const levelY = upgrade[toolType]['y_gap_per_level'];
+        const levelMaxExp = (toolLevel/levelX)**levelY;
+        return toolExp >= toolExp
     }
 }
 
