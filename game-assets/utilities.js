@@ -226,21 +226,25 @@ module.exports = {
      * @returns Object<money: number, exp: number, boostMoney: number, boostExp: number>
      */
     getItemMoneyAndExp(eventType, itemsRetrieved, moneyBoost, expBoost){
-      itemInfo = {
-        'money': 0,
-        'exp': 0,
-        'boostMoney': 0,
-        'boostExp': 0
-      }
-      for ( const [item, amount] of Object.entries(itemsRetrieved)) {
-        moneyTotal = (event[eventType]['money'][item] * amount);
-        expTotal = (event[eventType]['exp'][item] * amount);
-        itemInfo['money'] += ( moneyTotal + (moneyTotal * moneyBoost))
-        itemInfo['exp'] += (expTotal + (expTotal * expBoost))
-        itemInfo['boostMoney'] = (moneyTotal * moneyBoost);
-        itemInfo['boostExp'] = (moneyTotal * moneyBoost);
-      }
-      return itemInfo
+        let moneyTotal = 0;
+        let expTotal = 0;
+        itemInfo = {
+            'money': 0,
+            'exp': 0,
+            'boostMoney': 0,
+            'boostExp': 0
+        }
+        for ( const [item, amount] of Object.entries(itemsRetrieved)) {
+            moneyTotal += (event[eventType]['money'][item] * amount);
+            expTotal += (event[eventType]['exp'][item] * amount);
+        }
+        itemInfo['money'] = ( moneyTotal + (moneyTotal * moneyBoost))
+        itemInfo['exp'] = (expTotal + (expTotal * expBoost))
+        itemInfo['boostMoney'] = (itemInfo['boostMoney'] * moneyBoost);
+        itemInfo['boostExp'] = (expTotal * expBoost);
+        console.log(moneyBoost, expBoost)
+        console.log(itemInfo['boostMoney'], itemInfo['boostExp'])
+        return itemInfo
     },
     
     checkIfToolPassLevel(toolType, toolExp, toolLevel){

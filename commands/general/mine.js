@@ -28,9 +28,9 @@ module.exports = {
         const playersJobs = foundPlayer.jobs;
         const playersItems = foundPlayer.items;
         const playersMoney = BigInt(foundPlayer.money);
-        const playersMultipliers = foundPlayer.multipliers
-        const moneyBoost = (playersMultipliers['exp_multiplier'])
-        const expBoost = (playersMultipliers['money_multiplier'])
+        const playersMultipliers = foundPlayer.multipliers;
+        const expBoost = playersMultipliers['exp_multiplier'];
+        const moneyBoost = playersMultipliers['money_multiplier'];
         const pickaxe = playersItems['pickaxe'];
         const pickaxeTier = pickaxe['tier'];
         let pickaxeLevel = pickaxe['level'];
@@ -73,7 +73,6 @@ module.exports = {
         if (isToolPassLevel) {
           actionDesc += `\n**Your tool has leveled up!** \n ${pickaxeLevel} -> **${pickaxeLevel + 1}**`
           pickaxeLevel += 1;
-          console.log("inside:", pickaxeLevel)
         }
 
         const actionEmbed = actionJobEmbedBuilder(color.mine, actionTitle, actionDesc);
@@ -81,8 +80,6 @@ module.exports = {
         const newToolExp = pickaxeExp + BigInt(moneyExpRetrieved['exp']);
         const newJobExp = mineJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);
-
-        console.log("outside:", pickaxeLevel)
         
         playersItems['pickaxe'] = {
           "tier": pickaxeTier,
