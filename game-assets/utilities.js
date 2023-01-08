@@ -245,8 +245,8 @@ module.exports = {
     
     checkIfToolPassLevel(toolType, toolExp, toolLevel){
         if (toolLevel === 100) return false;
-        const levelX = upgrade[toolType]['x_exp_per_level'];
-        const levelY = upgrade[toolType]['y_gap_per_level'];
+        const levelX = upgrade[toolType]['exp']['x_exp_per_level'];
+        const levelY = upgrade[toolType]['exp']['y_gap_per_level'];
         const levelMaxExp = (toolLevel/levelX)**levelY;
         return toolExp >= levelMaxExp
     },

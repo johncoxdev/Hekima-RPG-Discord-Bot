@@ -46,7 +46,7 @@ module.exports = {
         // We are just adding the exp to the current exp rather than updating the database to save time.
         const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxeExp + BigInt(moneyExpRetrieved['exp']), pickaxeLevel);
         const isJobPassLevel = checkIfJobPassLevel(mineJobLevel, mineJobExp + BigInt(moneyExpRetrieved['exp']));
-        const actionTitle = "Mining - You mined up..."
+        const actionTitle = "Mine - You mined up..."
         let actionDesc = `\u200B`;
 
         for (const [item, amount] of Object.entries(itemsRetrieved)){
