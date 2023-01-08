@@ -46,7 +46,7 @@ module.exports = {
         // We are just adding the exp to the current exp rather than updating the database to save time.
         const isToolPassLevel = checkIfToolPassLevel("axe", axeExp + BigInt(moneyExpRetrieved['exp']), axeLevel);
         const isJobPassLevel = checkIfJobPassLevel(lumberJobLevel, lumberJobExp + BigInt(moneyExpRetrieved['exp']));
-        const actionTitle = "lumber - You lumbered up..."
+        const actionTitle = "Lumber - You lumbered up..."
         let actionDesc = `\u200B`;
 
         for (const [item, amount] of Object.entries(itemsRetrieved)){

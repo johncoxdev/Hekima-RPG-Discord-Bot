@@ -46,7 +46,7 @@ module.exports = {
         // We are just adding the exp to the current exp rather than updating the database to save time.
         const isToolPassLevel = checkIfToolPassLevel("hoe", hoeExp + BigInt(moneyExpRetrieved['exp']), hoeLevel);
         const isJobPassLevel = checkIfJobPassLevel(farmJobLevel, farmJobExp + BigInt(moneyExpRetrieved['exp']));
-        const actionTitle = "farm - You farmed up..."
+        const actionTitle = "Farm - You farmed up..."
         let actionDesc = `\u200B`;
 
         for (const [item, amount] of Object.entries(itemsRetrieved)){
@@ -71,7 +71,7 @@ module.exports = {
         }
         
         if (isToolPassLevel) {
-          actionDesc += `\n**Your tool has leveled up!** \n ${hoeLevel} -> **${hoeLevel + 1}**`
+          actionDesc += `\n**Your hoe has leveled up!** \n ${hoeLevel} -> **${hoeLevel + 1}**`
           hoeLevel += 1;
         }
 

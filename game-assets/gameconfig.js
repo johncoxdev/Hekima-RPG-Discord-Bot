@@ -52,11 +52,12 @@ module.exports = {
             "shrimp": "<:shrimp:1008629406408904796>",
             "trout": "<:trout:1008629407478464532>", 
             "grouper": "<:grouper:1008629404974469191>", 
-            "redchili": "<:redchili:1008629379116576879>", 
+            "chili": "<:chili:1008629379116576879>", 
             "carrot": "<:carrot:1008629374263762984>", 
             "potato": "<:potato:1008629376323170304>", 
             "tomato": "<:tomato:1008629379917684796>", 
             "pumpkin": "<:pumpkin:1008629377258491904>",
+            "nothing": "\u200B"
         },
         "name": {
             "1": "Booster exp 1.25x (10-15 mins)",
@@ -188,10 +189,10 @@ module.exports = {
                 "beef":  10
             },
             "exp": {
-                "nothing": 5,
-                "egg": 15,
-                "lamb": 30,
-                "beef": 50
+                "nothing": 1,
+                "egg": 3,
+                "lamb": 5,
+                "beef": 10
             },
             "money": {
                 "nothing": 0,

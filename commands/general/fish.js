@@ -4,14 +4,14 @@ const { PlayerDb } = require('../../databases/playerdb.js');
 const { getJobItems, getItemMoneyAndExp, updateBoosterInfo, checkIfToolPassLevel, checkIfJobPassLevel, actionJobEmbedBuilder } = require('../../game-assets/utilities.js');
 /**
  * Job component of gaining experience points and money
- * Specificically for mining.
+ * Specificically for fishing.
  */
 
 module.exports = {
     category: 'General',
     data: new SlashCommandBuilder()
-        .setName('mine')
-        .setDescription('Mine and gather exp!'),
+        .setName('fish')
+        .setDescription('Catch the sea and gather exp!'),
 
     async execute(interaction) {
       /*  
@@ -20,7 +20,7 @@ module.exports = {
         3. If the exp passes the threshold, then we're going to announce that they have leveled up the job/tool
         4. We are going to update the database if needed
         Notes: 
-        - Most of these are going to be in the utilities.js because they repeat for the jobs (mine, farm, hunt, fish, lumber)
+        - Most of these are going to be in the utilities.js because they repeat for the jobs (fish, fish, hunt, fish, fish)
         - Tools need to level to 100 (then they can upgrade the tool)
         - Job levels go infinetely 
       */
@@ -31,22 +31,22 @@ module.exports = {
         const playersMultipliers = foundPlayer.multipliers;
         const expBoost = playersMultipliers['exp_multiplier'];
         const moneyBoost = playersMultipliers['money_multiplier'];
-        const pickaxe = playersItems['pickaxe'];
-        const pickaxeTier = pickaxe['tier'];
-        let pickaxeLevel = pickaxe['level'];
-        const pickaxeExp = BigInt(pickaxe['exp']);
-        const mineJob = playersJobs['mine'];
-        let mineJobLevel = mineJob['level'];
-        const mineJobExp = BigInt(mineJob['exp']);
+        const fishing_rod = playersItems['fishing_rod'];
+        const fishing_rodTier = fishing_rod['tier'];
+        let fishing_rodLevel = fishing_rod['level'];
+        const fishing_rodExp = BigInt(fishing_rod['exp']);
+        const fishJob = playersJobs['fish'];
+        let fishJobLevel = fishJob['level'];
+        const fishJobExp = BigInt(fishJob['exp']);
 
         await updateBoosterInfo(interaction.user.id);
 
-        const itemsRetrieved = getJobItems("mine", pickaxeTier);
-        const moneyExpRetrieved = getItemMoneyAndExp("mine", itemsRetrieved, moneyBoost['amount'], expBoost['amount']);
+        const itemsRetrieved = getJobItems("fish", fishing_rodTier);
+        const moneyExpRetrieved = getItemMoneyAndExp("fish", itemsRetrieved, moneyBoost['amount'], expBoost['amount']);
         // We are just adding the exp to the current exp rather than updating the database to save time.
-        const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxeExp + BigInt(moneyExpRetrieved['exp']), pickaxeLevel);
-        const isJobPassLevel = checkIfJobPassLevel(mineJobLevel, mineJobExp + BigInt(moneyExpRetrieved['exp']));
-        const actionTitle = "Mine - You mined up..."
+        const isToolPassLevel = checkIfToolPassLevel("fishing_rod", fishing_rodExp + BigInt(moneyExpRetrieved['exp']), fishing_rodLevel);
+        const isJobPassLevel = checkIfJobPassLevel(fishJobLevel, fishJobExp + BigInt(moneyExpRetrieved['exp']));
+        const actionTitle = "Fish - You fished up..."
         let actionDesc = `\u200B`;
 
         for (const [item, amount] of Object.entries(itemsRetrieved)){
@@ -66,28 +66,28 @@ module.exports = {
         actionDesc += `\n**Total Exp Earned:** +${moneyExpRetrieved['exp']}exp`
 
         if (isJobPassLevel) {
-          actionDesc += `\n**Your Mine job has leveled up!** \n${mineJobLevel} -> **${mineJobLevel + 1}**`
-          mineJobLevel += 1;
+          actionDesc += `\n**Your fish job has leveled up!** \n${fishJobLevel} -> **${fishJobLevel + 1}**`
+          fishJobLevel += 1;
         }
         
         if (isToolPassLevel) {
-          actionDesc += `\n**Your pickaxe has leveled up!** \n ${pickaxeLevel} -> **${pickaxeLevel + 1}**`
-          pickaxeLevel += 1;
+          actionDesc += `\n**Your fishing rod has leveled up!** \n ${fishing_rodLevel} -> **${fishing_rodLevel + 1}**`
+          fishing_rodLevel += 1;
         }
 
-        const actionEmbed = actionJobEmbedBuilder(color.mine, actionTitle, actionDesc);
+        const actionEmbed = actionJobEmbedBuilder(color.fish, actionTitle, actionDesc);
 
-        const newToolExp = pickaxeExp + BigInt(moneyExpRetrieved['exp']);
-        const newJobExp = mineJobExp + BigInt(moneyExpRetrieved['exp']); 
+        const newToolExp = fishing_rodExp + BigInt(moneyExpRetrieved['exp']);
+        const newJobExp = fishJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);
         
-        playersItems['pickaxe'] = {
-          "tier": pickaxeTier,
-          "level": pickaxeLevel,
+        playersItems['fishing_rod'] = {
+          "tier": fishing_rodTier,
+          "level": fishing_rodLevel,
           "exp": String(newToolExp)
         } 
-        playersJobs['mine'] = {
-          "level": mineJobLevel,
+        playersJobs['fish'] = {
+          "level": fishJobLevel,
           "exp": String(newJobExp)
         }
 
