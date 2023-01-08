@@ -27,7 +27,7 @@ dotenv 16.0.1: [Click here](https://www.npmjs.com/package/dotenv)
 ## Completion list
 
 Commands:
-- [ ] /mine
+- [x] /mine
 - [ ] /farm  
 - [ ] /hunt  
 - [ ] /fish  
