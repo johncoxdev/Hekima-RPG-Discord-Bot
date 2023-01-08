@@ -179,23 +179,23 @@ module.exports = {
       const min = baseAmountGathered + ((toolTier+1)*2);
       const amountItemGotten = Math.floor(Math.random() * (max - min + 1) + min)
       if (jobType === "mine") {
-        eventType = event['mine']['tier'][toolTier]
+        eventType = event['mine']['tier'][toolTier];
       }
 
       else if (jobType === "farm") {
- b
+        eventType = event['farm']['chances'];
       }
 
       else if (jobType === "fish") {
-
+        eventType = event['fish']['chances'];
       }
 
       else if (jobType === "lumber") {
-
+        eventType = event['lumber']['chances'];
       }
 
       else if (jobType === "hunt") {
-
+        eventType = event['hunt']['chances'];
       }
       let itemsGathered = {};
       let total_weight = 0;
@@ -242,8 +242,6 @@ module.exports = {
         itemInfo['exp'] = (expTotal + (expTotal * expBoost))
         itemInfo['boostMoney'] = (itemInfo['boostMoney'] * moneyBoost);
         itemInfo['boostExp'] = (expTotal * expBoost);
-        console.log(moneyBoost, expBoost)
-        console.log(itemInfo['boostMoney'], itemInfo['boostExp'])
         return itemInfo
     },
     
@@ -270,9 +268,3 @@ module.exports = {
         return actionEmbed 
     }
 }
-
-
-/**
- * TODO: 
- * 1) function for dealing with setting exp.
- */

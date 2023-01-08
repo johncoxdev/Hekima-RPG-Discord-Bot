@@ -17,8 +17,8 @@ const PlayerDb = sequelize.define('player', {
         defaultValue: true
     },
     money: {
-        type: Sequelize.BIGINT,
-        defaultValue: '0'
+        type: Sequelize.STRING,
+        defaultValue: '9999999999999'
     },
     quests: {
         type: Sequelize.JSON,
