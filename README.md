@@ -9,7 +9,7 @@ learning pruposes.
 ----------
 ## Customization:  
 
-If a user is going to locally/personally host the bot then they're able to customize the RPG bot to their desire within the `gameconfig.js` file. Users are allowed to customize the icon pictures (Discord emojis), experience points for jobs, weapons, and tools, change the difficulty of quest, and much more. 
+If a user is going to locally/personally host the bot then they're able to customize the RPG bot to their desire within the `game-assets > gameconfig.js` file. Users are allowed to customize the icon pictures (Discord emojis), experience points for jobs, weapons, and tools, change the difficulty of quest, and much more. 
 
 ----------
 ## Credits:  
