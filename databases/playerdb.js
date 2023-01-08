@@ -58,23 +58,23 @@ const PlayerDb = sequelize.define('player', {
         type: Sequelize.JSON,
         defaultValue: {
             "lumber": {
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "mine": {
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "farm": {
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "hunt": {
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "fish": {
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             }
         }
@@ -87,7 +87,7 @@ const PlayerDb = sequelize.define('player', {
             "3": 0,
             "4": 0,
             "5": 0,
-            "6": 0,
+            "6": 1,
             "7": 0,
             "8": 0,
             "9": 0,
@@ -100,32 +100,32 @@ const PlayerDb = sequelize.define('player', {
         defaultValue: {
             "sword": {
                 "tier": 1,
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "bow": {
                 "tier": 1,
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "pickaxe": {
                 "tier": 1,
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "axe": {
                 "tier": 1,
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "fishing_rod": {
                 "tier": 1,
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "hoe": {
                 "tier": 1,
-                "level": 0,
+                "level": 1,
                 "exp": '0'
             },
             "helmet": {

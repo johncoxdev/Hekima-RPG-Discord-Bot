@@ -44,7 +44,7 @@ module.exports = {
         const itemsRetrieved = getJobItems("mine", pickaxeTier);
         const moneyExpRetrieved = getItemMoneyAndExp("mine", itemsRetrieved, moneyBoost['amount'], expBoost['amount']);
         // We are just adding the exp to the current exp rather than updating the database to save time.
-        const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxeExp +BigInt(moneyExpRetrieved['exp']), pickaxeLevel);
+        const isToolPassLevel = checkIfToolPassLevel("pickaxe", pickaxeExp + BigInt(moneyExpRetrieved['exp']), pickaxeLevel);
         const isJobPassLevel = checkIfJobPassLevel(mineJobLevel, mineJobExp + BigInt(moneyExpRetrieved['exp']));
         const actionTitle = "Mining - You mined up..."
         let actionDesc = `\u200B`;
@@ -67,12 +67,13 @@ module.exports = {
 
         if (isJobPassLevel) {
           actionDesc += `\n**Your Mine job has leveled up!** \n${mineJobLevel} -> **${mineJobLevel + 1}**`
-          mineJobLevel += 1
+          mineJobLevel += 1;
         }
         
         if (isToolPassLevel) {
           actionDesc += `\n**Your tool has leveled up!** \n ${pickaxeLevel} -> **${pickaxeLevel + 1}**`
-          pickaxeLevel += 1
+          pickaxeLevel += 1;
+          console.log("inside:", pickaxeLevel)
         }
 
         const actionEmbed = actionJobEmbedBuilder(color.mine, actionTitle, actionDesc);
@@ -81,6 +82,8 @@ module.exports = {
         const newJobExp = mineJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);
 
+        console.log("outside:", pickaxeLevel)
+        
         playersItems['pickaxe'] = {
           "tier": pickaxeTier,
           "level": pickaxeLevel,

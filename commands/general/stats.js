@@ -33,8 +33,9 @@ module.exports = {
             const playersItems = foundPlayer.items
             statsEmbed.setTitle(`${interaction.user.username} Item's Stats`)
             for ( item in playersItems ) {
-                const expNeeded = (playersItems[item].level/upgrade[item].exp.x_exp_per_level)**upgrade[item].exp.y_gap_per_level;
-                const itemDesc = (item == "helmet" || item == "chestplate" || item == "boots" ) ? `**Tier:** ${playersItems[item].tier}` : `**Tier:** ${playersItems[item].tier} **Level:** ${playersItems[item].level} \n**Experience:** ${Number(playersItems[item].exp).toLocaleString()}/${Number(expNeeded).toLocaleString()}`
+                const expNeeded = Math.floor((playersItems[item].level/upgrade[item].exp.x_exp_per_level)**upgrade[item].exp.y_gap_per_level);
+
+                const itemDesc = (item == "helmet" || item == "chestplate" || item == "boots" ) ? `**Tier:** ${playersItems[item].tier}` : `**Tier:** ${playersItems[item].tier} **Level:** ${playersItems[item].level} \n**Experience:** ${Number(playersItems[item].exp).toLocaleString()}/${(expNeeded).toLocaleString()}`
                 
 
                 currItem = {
@@ -50,7 +51,7 @@ module.exports = {
 
           // loop through player's jobs and add them to stats.
           for ( job in playersJobs ) {
-            const expNeeded = (playersJobs[job].level/level_exp.x_exp_per_level)**level_exp.y_gap_per_level
+            const expNeeded = Math.floor((playersJobs[job].level/level_exp.x_exp_per_level)**level_exp.y_gap_per_level);
             const jobDesc = `**Level:** ${playersJobs[job].level} \n**Experience:** ${Number(playersJobs[job].exp).toLocaleString()}/${Number(expNeeded).toLocaleString()}`
 
             currItem = {
