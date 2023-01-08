@@ -238,10 +238,10 @@ module.exports = {
             moneyTotal += (event[eventType]['money'][item] * amount);
             expTotal += (event[eventType]['exp'][item] * amount);
         }
-        itemInfo['money'] = ( moneyTotal + (moneyTotal * moneyBoost))
-        itemInfo['exp'] = (expTotal + (expTotal * expBoost))
-        itemInfo['boostMoney'] = (itemInfo['boostMoney'] * moneyBoost);
-        itemInfo['boostExp'] = (expTotal * expBoost);
+        itemInfo['money'] = Math.floor((moneyTotal + (moneyTotal * moneyBoost)));
+        itemInfo['exp'] = Math.floor((expTotal + (expTotal * expBoost)));
+        itemInfo['boostMoney'] = Math.floor((itemInfo['boostMoney'] * moneyBoost));
+        itemInfo['boostExp'] = Math.floor((expTotal * expBoost));
         return itemInfo
     },
     

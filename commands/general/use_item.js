@@ -1,7 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color, message, IconEmoji } = require('../../game-assets/gameconfig.js');
+const { color, message, IconEmoji, event } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
-const { removeInventoryItem } = require('../../game-assets/utilities.js');
+const { removeInventoryItem, updateBoosterInfo } = require('../../game-assets/utilities.js');
 /**
  * A command that will use the item that the player is wanting
  * to use from their inventory. This will reduce the item by
@@ -39,7 +39,6 @@ module.exports = {
         const playerMultis = foundPlayer.multipliers;
         let expMultiplier = playerMultis['exp_multiplier'];
         let moneyMultiplier = playerMultis['money_multiplier'];
-        let currentTime = Math.floor(Date.now()/1000);
         const noItemEmbed = new EmbedBuilder()
             .setTitle("You don't have any of this item to use!")
             .setColor(color.failed);
@@ -102,9 +101,29 @@ module.exports = {
         } else {
             //If it is not a booster, we are going to be handling a ore object and we have to sell it with the 
             //possible boost that the player may have.
+            await updateBoosterInfo(interaction.user.id);
+            const moneyBoost = moneyMultiplier['amount']
+            const itemName = getItemName(playerChoice) 
+            const itemPrice = event['mine']['money'][itemName];
+            const totalMoney = Math.floor(itemPrice + (itemPrice * moneyBoost));
+            const playerMoney = BigInt(foundPlayer.money);
+            
+            const itemSoldEmbed = new EmbedBuilder()
+                .setTitle("Item Used!")
+                .setColor(color.success)
+                .setDescription(`You sold **1x ${itemName}** for **$${totalMoney}** *(Boost: x${moneyBoost})*`)
+            5
+            const newMoney = playerMoney + BigInt(totalMoney);
+                await PlayerDb.update({
+                    money: String(newMoney)
+                },{
+                    where: {
+                        discord_user_id: interaction.user.id
+                    }
+                });
+
+            interaction.reply({ embeds: [itemSoldEmbed]})
         }
-        
-        await removeInventoryItem(interaction.user.id, playerChoice)
 
         await PlayerDb.update({
             multipliers: playerMultis
@@ -112,7 +131,9 @@ module.exports = {
             where: {
                 discord_user_id: interaction.user.id
             }
-        });    
+        }); 
+        
+        await removeInventoryItem(interaction.user.id, playerChoice)   
     }
 }
 
@@ -124,3 +145,12 @@ function boosterType(playerChoice){
     if (playerChoice >= 1 && playerChoice <= 6) return "exp";
     return "money";
 };
+function getItemName(playerChoice){
+    if (playerChoice === 9){
+        return "emerald";
+    } else if (playerChoice === 10) {
+        return "firestone";
+    } else if (playerChoice === 11) {
+        return "crystal";
+    }
+}

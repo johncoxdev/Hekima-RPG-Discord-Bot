@@ -41,7 +41,7 @@ module.exports = {
             if (multiplierActive === true){
                 boostersEmbed.data.fields.push({
                     name: multiplierType.replace("_", " "),
-                    value: `**Active:** ${multiplierActive} \n**Boost Amount:** ${multiplierAmount} \n**Boost ends in:** <t:${multiplierTime}:R>`,
+                    value: `**Active:** ${multiplierActive} \n**Boost Amount:** x${multiplierAmount} \n**Boost ends in:** <t:${multiplierTime}:R>`,
                     inline: false         
                 });
             }else{
