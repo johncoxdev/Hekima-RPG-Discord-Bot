@@ -28,10 +28,10 @@ dotenv 16.0.1: [Click here](https://www.npmjs.com/package/dotenv)
 
 Commands:
 - [x] /mine
-- [ ] /farm  
-- [ ] /hunt  
-- [ ] /fish  
-- [ ] /lumber  
+- [x] /farm  
+- [x] /hunt  
+- [x] /fish  
+- [x] /lumber  
 - [x] /stats <tools/jobs/armor>  
 - [x] /inventory  
 - [x] /use_item <id>  
