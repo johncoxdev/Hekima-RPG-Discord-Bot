@@ -156,10 +156,10 @@ module.exports = {
 
     async giveRandomMoney(userId) {
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: userId } });
-        const playerMoney = foundPlayer['money'];
+        const playerMoney = BigInt(foundPlayer['money']);
         const randomMoneyAmt = Math.floor(Math.random() * 500);
         await PlayerDb.update( {
-            money: playerMoney + randomMoneyAmt
+            money: playerMoney + BigInt(randomMoneyAmt)
         }, {
             where: { discord_user_id: userId }
         });
@@ -175,7 +175,9 @@ module.exports = {
      */
     getJobItems(jobType, toolTier) {
       let eventType = "";
-      const amountItemGotten = baseAmountGathered + ((toolTier+1)*2);
+      const max = (baseAmountGathered + ((toolTier+1)*2)) * 2;
+      const min = baseAmountGathered + ((toolTier+1)*2);
+      const amountItemGotten = Math.floor(Math.random() * (max - min + 1) + min)
       if (jobType === "mine") {
         eventType = event['mine']['tier'][toolTier]
       }
@@ -242,6 +244,7 @@ module.exports = {
     },
     
     checkIfToolPassLevel(toolType, toolExp, toolLevel){
+        if (toolLevel === 100) return false;
         const levelX = upgrade[toolType]['x_exp_per_level'];
         const levelY = upgrade[toolType]['y_gap_per_level'];
         const levelMaxExp = (toolLevel/levelX)**levelY;

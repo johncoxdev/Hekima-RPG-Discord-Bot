@@ -304,7 +304,7 @@ module.exports = {
                     "iron": 15,
                     "vibrance": 9,
                     "diamond": 5,
-                    "raw steel": 3,
+                    "rawsteel": 3,
                     "emerald": 2
                 },
                 "9": {
@@ -314,7 +314,7 @@ module.exports = {
                     "iron": 15,
                     "vibrance": 11,
                     "diamond": 8,
-                    "raw steel": 5,
+                    "rawsteel": 5,
                     "emerald": 4,
                     "firestone": 2,
                     "crystal": 1
@@ -326,23 +326,23 @@ module.exports = {
                     "gold": 15,
                     "iron": 13,
                     "diamond": 10,
-                    "raw steel": 5,
+                    "rawsteel": 5,
                     "emerald": 3,
                     "firestone": 2,
                     "crystal": 1
                 }
             },
             "money": {
-                "stone": 0.25,
-                "coal": 0.5,
-                "copper": 1,
-                "iron": 5,
+                "stone": 1,
+                "coal": 2,
+                "copper": 5,
+                "iron": 7,
                 "gold": 10,
                 "silver": 25,
                 "platinum": 50,
                 "vibrance": 100,
                 "diamond": 500,
-                "raw steel": 1000,
+                "rawsteel": 1000,
                 "emerald": 1500,
                 "firestone": 1750,
                 "crystal": 3000
@@ -357,7 +357,7 @@ module.exports = {
                 "platinum": 20,
                 "vibrance": 100,
                 "diamond": 250,
-                "raw steel": 500,
+                "rawsteel": 500,
                 "emerald": 1000,
                 "firestone": 1500,
                 "crystal": 2500 
