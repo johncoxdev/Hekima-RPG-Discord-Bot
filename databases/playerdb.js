@@ -14,7 +14,7 @@ const PlayerDb = sequelize.define('player', {
     },
     first_time_user: {
         type: Sequelize.BOOLEAN,
-        defaultValue: true
+        defaultValue: false
     },
     money: {
         type: Sequelize.STRING,
