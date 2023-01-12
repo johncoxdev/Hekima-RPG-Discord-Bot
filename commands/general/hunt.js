@@ -20,7 +20,7 @@ module.exports = {
         3. If the exp passes the threshold, then we're going to announce that they have leveled up the job/tool
         4. We are going to update the database if needed
         Notes: 
-        - Most of these are going to be in the utilities.js because they repeat for the jobs (hunt, hunt, hunt, fish, hunt)
+        - Most of these are going to be in the utilities.js because they repeat for the jobs (hunt, farm, fish, lumber, mine)
         - Tools need to level to 100 (then they can upgrade the tool)
         - Job levels go infinetely 
       */

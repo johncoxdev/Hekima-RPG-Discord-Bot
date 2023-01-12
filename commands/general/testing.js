@@ -2,7 +2,6 @@ const { EmbedBuilder, SlashCommandBuilder, AttachmentBuilder } = require('discor
 const { color } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 const Canvas = require('@napi-rs/canvas');
-const fs = require('fs');
 /**
  * A chest command that will display all the chest
  * that the user has, and can open using /open_chest.
@@ -16,7 +15,7 @@ module.exports = {
 
     async execute(interaction) {
         const randomTier = Math.floor(Math.random() * 10) + 1;
-        const canvas = Canvas.createCanvas(1080, 200);
+        const canvas = Canvas.createCanvas(1000, 170);
         let context = canvas.getContext('2d');
         
         context.font = '21 px sans-serif';
@@ -24,9 +23,6 @@ module.exports = {
         context.fillRect(0, 0, canvas.width, canvas.height);
 
         // We are now going to load in all of the images.
-        const armorItems = fs.readdirSync(`./game-assets/game-images/armor/tier ${randomTier}`);
-        const toolItems = fs.readdirSync(`./game-assets/game-images/tool/`);
-        const weapons = fs.readdirSync(`./game-assets/game-images/weapon/`);
         const loadedImages = {
             "helmet": `./game-assets/game-images/armor/tier ${randomTier}/1.png`,
             "chestplate": `./game-assets/game-images/armor/tier ${randomTier}/2.png`,
