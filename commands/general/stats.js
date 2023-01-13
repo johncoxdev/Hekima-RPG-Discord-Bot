@@ -56,7 +56,7 @@ module.exports = {
             context.shadowColor = "black";
             context.fillStyle = "white";
             context.fillText(`Tier:  ${playersItems[item].tier}`, x_pos, 150)
-            context.fillText(`Level:  ${playersItems[item].tier}`, x_pos, 170)
+            context.fillText(`Level:  ${playersItems[item].level}`, x_pos, 170)
             
             index++
             currItem = {
