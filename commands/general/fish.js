@@ -8,7 +8,7 @@ const { getJobItems, getItemMoneyAndExp, updateBoosterInfo, checkIfToolPassLevel
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('fish')
         .setDescription('Catch the sea and gather exp!'),

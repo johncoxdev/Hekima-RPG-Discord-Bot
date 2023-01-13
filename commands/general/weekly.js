@@ -9,7 +9,7 @@ const { ServerDb } = require('../../databases/serverdb.js')
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('weekly')
         .setDescription('Get your weekly chest!'),

@@ -9,7 +9,7 @@ const { getOrAddMember, ifBoostersExpired, updateBoosterInfo } = require('../../
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('boosters')
         .setDescription('Show the multiplier boosters you have active.'),

@@ -3,13 +3,12 @@ const { color } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 const sequelize = require('sequelize');
 /**
- * A command that will give a uncommon chest to a user weekly.
- * The server owners are allowed to enable/disable it. If
- * enabled continue, if not dont execute command!
+ * A command that shows the leaderboards for money &
+ * prestiges.
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('leaderboard')
         .setDescription('leaderboard for money'),

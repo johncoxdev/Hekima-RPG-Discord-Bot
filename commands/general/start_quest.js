@@ -7,7 +7,7 @@ const { PlayerDb } = require('../../databases/playerdb.js');
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('start_quest')
         .setDescription('Start a dangerous quest! Survive & win some rewards!')

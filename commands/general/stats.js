@@ -7,7 +7,7 @@ const Canvas = require('@napi-rs/canvas');
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('stats')
         .setDescription('View your tools/armor & jobs.')
@@ -60,7 +60,7 @@ module.exports = {
             
             index++
             currItem = {
-                name: `${String(item)[0].toUpperCase() + String(item).substring(1)}`,
+                name: `${String(item)[0].toUpperCase() + String(item).substring(1).replace("_", " ")}`,
                 value: itemDesc,
                 inline: true
             }

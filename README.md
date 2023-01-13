@@ -41,7 +41,7 @@ Commands:
 - [x] /open_chest <type>  
 - [x] /quest  
 - [x] /start_quest <difficulty>    
-- [ ] /shop  
+- [x] /shop  
 - [ ] /buy_item <id>  
 - [x] /prestige  
 - [x] /daily  

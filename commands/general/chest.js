@@ -7,7 +7,7 @@ const { PlayerDb } = require('../../databases/playerdb.js');
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('chest')
         .setDescription('View the chest you have collected!'),

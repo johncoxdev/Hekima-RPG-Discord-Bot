@@ -9,7 +9,7 @@ const { PlayerDb } = require('../../databases/playerdb.js');
  */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('prestige')
         .setDescription('Prestige and rest most info!'),

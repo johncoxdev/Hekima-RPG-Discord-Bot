@@ -19,7 +19,7 @@ const { removeInventoryItem, updateBoosterInfo } = require('../../game-assets/ut
 */
 
 module.exports = {
-    category: 'General',
+    
     data: new SlashCommandBuilder()
         .setName('use_item')
         .setDescription('Use an item from your /inventory')

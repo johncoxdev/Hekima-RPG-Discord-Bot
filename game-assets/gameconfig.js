@@ -421,6 +421,7 @@ module.exports = {
         "x_exp_per_level": 0.044,
         "y_gap_per_level": 2.01
     },
+    "shopFlatAmount": 100000,
     "upgrade": {
         "all": {
             "money": {
