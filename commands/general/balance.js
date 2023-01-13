@@ -13,10 +13,10 @@ module.exports = {
 
     async execute(interaction) {
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
-        const playerBalance = foundPlayer.money;
+        const playerBalance = BigInt(foundPlayer.money);
         const moneyEmbed = new EmbedBuilder()
         .setTitle(`${interaction.user.username}'s Balance`)
-        .setFooter({ text: `$${Number(playerBalance).toLocaleString()}`})
+        .setFooter({ text: `$${playerBalance.toLocaleString()}`})
         .setColor(color.other);
 
         return interaction.reply({ embeds: [moneyEmbed] });

@@ -455,7 +455,7 @@ module.exports = {
         },
         "fishing_rod": {
             "exp": {
-                "x_exp_per_level": 0.343,
+                "x_exp_per_level": 0.0543,
                 "y_gap_per_level": 2.03
             }
         },

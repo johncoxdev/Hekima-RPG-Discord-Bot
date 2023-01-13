@@ -1,5 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { color } = require('../../game-assets/gameconfig.js');
+const { color, shopFlatAmount } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 /**
  * A command that will upgrade the user's tier if they have the requirement
@@ -43,14 +43,43 @@ module.exports = {
           })),
 
     async execute(interaction) {
+      /**
+       * I'm going to need to handle all cases of which buying the 
+       * item can fail. Tier, Level, and Money should be all the cases
+       * I will also need to update the user's item database with the
+       * proper item, tier, and resetting the level to 0 if need be.
+       * I'm also going to be sending a canvas an upgraded from the prev
+       * item to their new item!
+       */
+        const playersChoice = await interaction.options.getString('item_id');
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
-        const playerBalance = foundPlayer.money;
-        const moneyEmbed = new EmbedBuilder()
-        .setTitle(`${interaction.user.username}'s Balance`)
-        .setFooter({ text: `$${Number(playerBalance).toLocaleString()}`})
-        .setColor(color.other);
+        const playerBalance = BigInt(foundPlayer.money);
+        const playerItems = foundPlayer.items;
+        const toolPrice = (shopFlatAmount * playerItems[playersChoice].tier) + ((playerItems[playersChoice].tier - 1) * .85)
 
-        return interaction.reply({ embeds: [moneyEmbed] });
-5
+        const isMaxLevel = (playerItems[playersChoice].level === 100) ? true : false;
+        const isMaxTier = (playerItems[playersChoice].tier === 10) ? true : false;
+        const hasEnoughMoney = (playerBalance >= toolPrice) ? true : false;
+        const shopEmbed = new EmbedBuilder()
+
+        if (!isMaxLevel) {
+          shopEmbed.setTitle("Your tool must be level 100 in order to purchase the next tier!")
+          shopEmbed.setColor(color.failed);
+          return interaction.reply({ embeds: [shopEmbed] });
+        }
+
+        if (isMaxTier) {
+          shopEmbed.setTitle("Your tool is already max tiered! Cannot upgrade!")
+          shopEmbed.setColor(color.failed);
+          return interaction.reply({ embeds: [shopEmbed] });
+        }
+
+        if (!hasEnoughMoney) {
+          shopEmbed.setTitle("You dont have enough money!")
+          shopEmbed.setColor(color.failed);
+          return interaction.reply({ embeds: [shopEmbed] });
+        }
+
+        return interaction.reply({ embeds: [shopEmbed] });
     }
 }

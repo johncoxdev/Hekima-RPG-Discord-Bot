@@ -47,6 +47,8 @@ module.exports = {
             const expNeeded = Math.floor((playersItems[item].level/upgrade[item].exp.x_exp_per_level)**upgrade[item].exp.y_gap_per_level);
 
             const itemDesc = (item == "helmet" || item == "chestplate" || item == "boots" ) ? `**Tier:** ${playersItems[item].tier}` : `**Tier:** ${playersItems[item].tier} **Level:** ${playersItems[item].level} \n**Experience:** ${Number(playersItems[item].exp).toLocaleString()}/${(expNeeded).toLocaleString()}`
+            
+            const itemLevel = (item == "helmet" || item == "chestplate" || item == "boots") ? " " : `Level:  ${playersItems[item].level}`
 
             const itemImage = await Canvas.loadImage(loadToolImage(item, playersItems[item].tier));
             // I am hardcoding "9" as the placement since we have 9 objects we are checking for. Normally I would get the length of the Object.
@@ -56,7 +58,7 @@ module.exports = {
             context.shadowColor = "black";
             context.fillStyle = "white";
             context.fillText(`Tier:  ${playersItems[item].tier}`, x_pos, 150)
-            context.fillText(`Level:  ${playersItems[item].level}`, x_pos, 170)
+            context.fillText(itemLevel, x_pos, 170)
             
             index++
             currItem = {
