@@ -59,6 +59,7 @@ module.exports = {
         const chest = crate[chosenChoice];
         const randomAmt = Math.floor(Math.random() * chest["amount"]) + 1;
         let total_weight = 0;
+
         //Build EmbedMessage
         const chestEmbed = new EmbedBuilder()
             .setTitle(`You opened a ${chosenChoice} chest!`)
@@ -69,6 +70,7 @@ module.exports = {
         for (let [type, amt] of Object.entries(chest['loottable'])){
             total_weight += amt
         };
+
         let randomNumber = Math.floor(Math.random() * total_weight)
 
         //get the amount of rewards needed and add them to the player's inventory.
@@ -94,6 +96,7 @@ module.exports = {
 
 function get_random_tier(chest, randomNumber){ 
     let gotId;
+    
     for (const [type, amt] of Object.entries(chest['loottable'])){
         if (randomNumber <= amt){
             gotId = loottable[type][Math.floor(Math.random() * loottable[type].length)];

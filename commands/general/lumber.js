@@ -76,7 +76,6 @@ module.exports = {
         }
 
         const actionEmbed = actionJobEmbedBuilder(color.lumber, actionTitle, actionDesc);
-
         const newToolExp = axeExp + BigInt(moneyExpRetrieved['exp']);
         const newJobExp = lumberJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);

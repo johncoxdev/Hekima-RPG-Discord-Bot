@@ -17,15 +17,18 @@ module.exports = {
       const playerItems = foundPlayer.items;
       let shopText = "\u200B";
       let itemID = 1;
+
       for (const item of Object.keys(playerItems)) {
         const fixedItemName = String(item)[0].toUpperCase() + String(item).substring(1).replace("_", " ");
         const calculatedPrice = (shopFlatAmount * playerItems[item].tier) + ((playerItems[item].tier - 1) * .85);
         shopText += `\`ID: ${itemID}\` **| ${fixedItemName} |** $${calculatedPrice.toLocaleString()}\n`
       }
+
       const shopField = {
         name: '**Shop**',
         value: shopText
       }
+      
       const moneyEmbed = new EmbedBuilder()
       .setFields(shopField)
       .setFooter({ text: "Purchase items using \n/buy_item <ID>" })

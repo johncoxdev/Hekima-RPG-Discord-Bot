@@ -19,14 +19,12 @@ module.exports = {
 
 		//check if the command is the bot's command
 		const command = commands.get(interaction.commandName);
+    
 		if (!command) return;
 
 		//Get or create a player/server depending if they're on the database.
-		
 		const returnedPlayer = await getOrAddMember(interaction.user.id);
-
 		const returnedServer = await getOrAddServer(interaction.guildId);
-
 		const foundPlayer = returnedPlayer[0];
 
         //If member is a first time user, then send them this message and update the database.

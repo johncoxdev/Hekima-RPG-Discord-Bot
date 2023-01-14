@@ -39,28 +39,31 @@ module.exports = {
         const playerMultis = foundPlayer.multipliers;
         let expMultiplier = playerMultis['exp_multiplier'];
         let moneyMultiplier = playerMultis['money_multiplier'];
+
         const noItemEmbed = new EmbedBuilder()
             .setTitle("You don't have any of this item to use!")
             .setColor(color.failed);
+
         const boosterActiveEmbed = new EmbedBuilder()
             .setTitle("You already have an active booster!")
             .setColor(color.failed)
             .setDescription(message.multiplier_active);
+
         const boosterSetEmbed = new EmbedBuilder()
             .setTitle("Booster Activated!") 
-            .setColor(color.success)
+            .setColor(color.success);
 
         
         //first check if they even have something to use.
         if (playerInventory[playerChoice] <= 0) return interaction.reply({ embeds: [noItemEmbed] });
 
         if (isBooster(playerChoice)){
-
             const minMin = IconEmoji.info[playerChoice].min;
             const maxMin = IconEmoji.info[playerChoice].max;
             const randomMin = Math.floor(Math.random() * (maxMin-minMin+1)+maxMin);
             const currentTime = Math.floor(Date.now()/1000);
             const newTime = currentTime + (60*randomMin);
+
             boosterSetEmbed.data.footer = { text: `You were given ${randomMin} minutes!` }
 
             //Then we get all the global items, but we're still going to have to check what type of booster it is.
@@ -102,6 +105,7 @@ module.exports = {
             //If it is not a booster, we are going to be handling a ore object and we have to sell it with the 
             //possible boost that the player may have.
             await updateBoosterInfo(interaction.user.id);
+
             const moneyBoost = moneyMultiplier['amount']
             const itemName = getItemName(playerChoice) 
             const itemPrice = event['mine']['money'][itemName];
@@ -111,8 +115,8 @@ module.exports = {
             const itemSoldEmbed = new EmbedBuilder()
                 .setTitle("Item Used!")
                 .setColor(color.success)
-                .setDescription(`You sold **1x ${itemName}** for **$${totalMoney}** *(Boost: x${moneyBoost})*`)
-            5
+                .setDescription(`You sold **1x ${itemName}** for **$${totalMoney}** *(Boost: x${moneyBoost})*`);
+            
             const newMoney = playerMoney + BigInt(totalMoney);
                 await PlayerDb.update({
                     money: String(newMoney)

@@ -20,6 +20,7 @@ module.exports = {
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
         const playerQuest = foundPlayer.quests;
         const playerItems = foundPlayer.items;
+
         const questMenu = new EmbedBuilder()
             .setTitle("Quests")
             .setDescription("\u200B")
@@ -27,10 +28,13 @@ module.exports = {
             .setColor(color.other);
 
         if (playerQuest['active']){
+
             // If quest is complete, set player data in db, and return Boolean.
             if (await isQuestComplete(interaction.user.id, playerQuest)){
+              
                 //if the player died, just give them some Money
                 if (await didPlayerSurvive(playerItems, playerQuest['level'])) {
+
                     //If survived, send message and get rewards.
                     survivedImg = new AttachmentBuilder('game-assets/game-images/emote/survive.png', { name: 'survive.png' });
                     const questCompleteEmbed = new EmbedBuilder()
@@ -40,7 +44,6 @@ module.exports = {
                         .setThumbnail(`attachment://${survivedImg.name}`)
 
                     const questLevel = playerQuest['level'];
-
                     const chestAmount = event['quest'][questLevel]['reward_amount'];
                     const chestTypes = event['quest'][questLevel]['reward'];
 
@@ -49,6 +52,7 @@ module.exports = {
                         await addChest(interaction.user.id, resChestType)
                         questCompleteEmbed.data.description += `${IconEmoji['emoji'][resChestType]} **1x** ${IconEmoji['name'][resChestType]}`
                     }
+
                     interaction.channel.send({ embeds: [questCompleteEmbed], files: [survivedImg] })
                 } else {
 

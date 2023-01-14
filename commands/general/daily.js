@@ -22,6 +22,7 @@ module.exports = {
         //First check if the command is enabled
         const foundServer = await ServerDb.findOne({ where: { server_id: interaction.guildId } })
         const dailyEnabled = foundServer.daily_chest;
+
         const notEnabledEmbed = new EmbedBuilder()
             .setTitle("/daily is not enabled!")
             .setColor(color.failed);
@@ -33,6 +34,7 @@ module.exports = {
         const playerTimes = foundPlayer.times;
         const dailyCooldown = playerTimes['daily_claim'];
         let currentTime = Math.floor(Date.now()/1000);
+
         const notReady = new EmbedBuilder()
             .setTitle("Still on cooldown!")
             .setColor(color.failed)
@@ -44,7 +46,7 @@ module.exports = {
         const chests = foundPlayer.chest;
         const newDate = currentTime += 3600 * 24;
         chests['common'] += 1;
-        playerTimes['daily_claim'] = newDate
+        playerTimes['daily_claim'] = newDate;
 
         await PlayerDb.update({
             chest: chests,

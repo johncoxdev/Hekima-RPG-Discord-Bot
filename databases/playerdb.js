@@ -14,7 +14,7 @@ const PlayerDb = sequelize.define('player', {
     },
     first_time_user: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
     },
     money: {
         type: Sequelize.STRING,
@@ -87,12 +87,12 @@ const PlayerDb = sequelize.define('player', {
             "3": 0,
             "4": 0,
             "5": 0,
-            "6": 1,
-            "7": 1,
+            "6": 0,
+            "7": 0,
             "8": 0,
             "9": 0,
             "10": 0,
-            "11": 3
+            "11": 0
         }
     },
     items: {
@@ -142,9 +142,9 @@ const PlayerDb = sequelize.define('player', {
     chest: {
         type: Sequelize.JSON,
         defaultValue: {
-            "common": 5,
+            "common": 0,
             "uncommon": 0,
-            "rare": 5,
+            "rare": 0,
             "epic": 0,
             "mythical": 0
         }

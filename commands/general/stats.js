@@ -35,12 +35,13 @@ module.exports = {
         if (chosenChoice == "tools"){
           const canvas = Canvas.createCanvas(1000, 170);
           const context = canvas.getContext('2d');
+
           context.font = '21 px sans-serif';
           context.fillStyle = `black`;
           context.fillRect(0, 0, canvas.width, canvas.height);
+          statsEmbed.setTitle(`${interaction.user.username} Item's Stats`)
 
           const playersItems = foundPlayer.items
-          statsEmbed.setTitle(`${interaction.user.username} Item's Stats`)
           let index = 0;
 
           for ( item in playersItems ) {
@@ -51,6 +52,7 @@ module.exports = {
             const itemLevel = (item == "helmet" || item == "chestplate" || item == "boots") ? " " : `Level:  ${playersItems[item].level}`
 
             const itemImage = await Canvas.loadImage(loadToolImage(item, playersItems[item].tier));
+
             // I am hardcoding "9" as the placement since we have 9 objects we are checking for. Normally I would get the length of the Object.
             const x_pos = index * (canvas.width/9);   
 
@@ -61,6 +63,7 @@ module.exports = {
             context.fillText(itemLevel, x_pos, 170)
             
             index++
+
             currItem = {
                 name: `${String(item)[0].toUpperCase() + String(item).substring(1).replace("_", " ")}`,
                 value: itemDesc,
@@ -71,8 +74,10 @@ module.exports = {
 
           statsEmbed.setFields(itemList)
           statsEmbed.setColor(color.other);
+
           const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'stats-image.png' });
           statsEmbed.setImage(`attachment://${attachment.name}`)
+          
           return interaction.reply({ embeds: [statsEmbed] , files: [attachment] });
         
         // Jobs Embed (/stats jobs)

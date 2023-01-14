@@ -48,9 +48,9 @@ module.exports = {
         questEmbed.setDescription("You're already on a quest! Do `/quest` to view the remaining time you have!")
         return interaction.reply({ embeds: [questEmbed] });
       }
+
       const getUsersChoice = Number(await interaction.options.getString("difficulty"));
       const questTotalTime = getQuestTime(getUsersChoice);
-
       playersQuest['active'] = true;
       playersQuest['level'] = getUsersChoice;
       playersQuest['time'] = questTotalTime;

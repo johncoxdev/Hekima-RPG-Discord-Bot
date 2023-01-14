@@ -50,8 +50,6 @@ module.exports = {
              .setTitle("【✸】 PRESTIGE 【✸】")
              .setDescription(`You have prestiged! You are now prestige **${prestigeLevel + 1}**\nAll tool information has been whiped. Only your Job levels have stayed! Keep on grinding survivor!`)
              .setThumbnail(`attachment://${prestigedImg.name}`);
-         
-         await interaction.reply({ embeds: [prestigeEmbed], files: [prestigedImg] });
         
          permLevels.prestige += 1;
  
@@ -66,5 +64,6 @@ module.exports = {
              jobs: permLevels
          });
 
+         return interaction.reply({ embeds: [prestigeEmbed], files: [prestigedImg] });
     }
 }

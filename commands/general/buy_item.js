@@ -80,6 +80,8 @@ module.exports = {
           return interaction.reply({ embeds: [shopEmbed] });
         }
 
+        
+
         return interaction.reply({ embeds: [shopEmbed] });
     }
 }

@@ -14,6 +14,7 @@ module.exports = {
     async execute(interaction) {
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
         const playerBalance = BigInt(foundPlayer.money);
+        
         const moneyEmbed = new EmbedBuilder()
         .setTitle(`${interaction.user.username}'s Balance`)
         .setFooter({ text: `$${playerBalance.toLocaleString()}`})

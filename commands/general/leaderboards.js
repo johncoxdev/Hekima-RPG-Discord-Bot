@@ -18,10 +18,12 @@ module.exports = {
         limit: 5,
         order: [['prestige', 'DESC']]
         });
+
       const topThreeMoney = await PlayerDb.findAll({
         limit: 5,
         order: [['money', 'DESC']]
         });
+
       const leaderboardEmbed = new EmbedBuilder()
       leaderboardEmbed.setTitle("Leaderboards!")
       leaderboardEmbed.addFields({
@@ -33,6 +35,7 @@ module.exports = {
         value: "\u200B",
         inline: true
     });
+    
     for ( user of topThreePrestige ){
       leaderboardEmbed.data.fields[0].value += `<@${user.discord_user_id}> - ${user.prestige} \n` 
     }

@@ -86,7 +86,6 @@ module.exports = {
           }
 
         const actionEmbed = actionJobEmbedBuilder(color.hunt, actionTitle, actionDesc);
-
         const newToolExp1 = swordExp + BigInt(moneyExpRetrieved['exp']);
         const newToolExp2 = bowExp + BigInt(moneyExpRetrieved['exp']);
         const newJobExp = huntJobExp + BigInt(moneyExpRetrieved['exp']); 

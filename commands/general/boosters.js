@@ -32,12 +32,12 @@ module.exports = {
         const playerMultipliers = foundPlayer.multipliers;
 
         boostersEmbed.data.fields.pop()
+
         for (const [multiplierType, multiplierInfo] of Object.entries(playerMultipliers)){
             const multiplierActive = multiplierInfo['active'];
             let multiplierAmount = multiplierInfo['amount'];
             let multiplierTime = multiplierInfo['time'];
-
-
+          
             if (multiplierActive === true){
                 boostersEmbed.data.fields.push({
                     name: multiplierType.replace("_", " "),

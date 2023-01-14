@@ -76,7 +76,6 @@ module.exports = {
         }
 
         const actionEmbed = actionJobEmbedBuilder(color.farm, actionTitle, actionDesc);
-
         const newToolExp = hoeExp + BigInt(moneyExpRetrieved['exp']);
         const newJobExp = farmJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);

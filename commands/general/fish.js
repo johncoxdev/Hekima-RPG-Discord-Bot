@@ -76,7 +76,6 @@ module.exports = {
         }
 
         const actionEmbed = actionJobEmbedBuilder(color.fish, actionTitle, actionDesc);
-
         const newToolExp = fishing_rodExp + BigInt(moneyExpRetrieved['exp']);
         const newJobExp = fishJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);

@@ -14,12 +14,16 @@ module.exports = {
 	async execute(client) {
 		
 		console.log(`${client.user.tag} is online. \nSyncing database...`)
+
 		// force: true = Will remake a new database when starting the bot.
 		await sequelize.sync({ force: true })
+
 		console.log("Database has been sync'd!")
+
 		let DbAmt = await PlayerDb.count({
 			col: 'discord_user_id'
 		});
+
 		DbAmt = DbAmt.toLocaleString();
 		
 		client.user.setActivity(`${DbAmt} members`, { type: ActivityType.Watching })

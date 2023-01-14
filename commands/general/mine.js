@@ -76,7 +76,6 @@ module.exports = {
         }
 
         const actionEmbed = actionJobEmbedBuilder(color.mine, actionTitle, actionDesc);
-
         const newToolExp = pickaxeExp + BigInt(moneyExpRetrieved['exp']);
         const newJobExp = mineJobExp + BigInt(moneyExpRetrieved['exp']); 
         const newMoney = playersMoney + BigInt(moneyExpRetrieved['money']);
