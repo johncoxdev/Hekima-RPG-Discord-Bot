@@ -21,13 +21,17 @@ module.exports = {
         */
 
          const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
-         const items = foundPlayer.items;
-         let permLevels = foundPlayer.jobs;
-         const prestigeLevel = permLevels['prestige'];
+         let playerFirstTime = foundPlayer.first_time_user;
+         let playerPrestige = foundPlayer.prestige;
+         let playertimes = foundPlayer.times;
+         let playerJobs = foundPlayer.jobs;
+         let playerInventory = foundPlayer.inventory;
+         let playerChest = foundPlayer.chest;
+         const playerItems = foundPlayer.items;
          let notMaxed = "";
  
          // Checks if the user has all tier 10, if not, it will send the failed message.
-         for (const [tool, value] of Object.entries(items)){
+         for (const [tool, value] of Object.entries(playerItems)){
              if (value.tier !== 10) {
                  notMaxed = notMaxed.concat(`${tool}, `)
                  continue;
@@ -41,17 +45,16 @@ module.exports = {
              
              return interaction.reply({ embeds: [notMaxedEmbed] });
          }
- 
+         
+         playerPrestige += 1;
  
          // Sends prestige message & updates database.
          prestigedImg = new AttachmentBuilder('game-assets/game-images/emote/prestige.png', { name: 'prestige.png' });
          prestigeEmbed = new EmbedBuilder()
              .setColor(color.success)
              .setTitle("【✸】 PRESTIGE 【✸】")
-             .setDescription(`You have prestiged! You are now prestige **${prestigeLevel + 1}**\nAll tool information has been whiped. Only your Job levels have stayed! Keep on grinding survivor!`)
+             .setDescription(`You have prestiged! You are now prestige **${playerPrestige}**\nMost information has been wiped! Information kept: inventory, chest & Job levels! Keep on grinding!`)
              .setThumbnail(`attachment://${prestigedImg.name}`);
-        
-         permLevels.prestige += 1;
  
          await PlayerDb.destroy({
              where: {
@@ -61,7 +64,12 @@ module.exports = {
  
          await PlayerDb.create({
              discord_user_id: interaction.user.id,
-             jobs: permLevels
+             first_time_user: playerFirstTime,
+             prestige: playerPrestige,
+             times: playertimes,
+             jobs: playerJobs,
+             inventory: playerInventory,
+             chest: playerChest
          });
 
          return interaction.reply({ embeds: [prestigeEmbed], files: [prestigedImg] });

@@ -42,7 +42,7 @@ Commands:
 - [x] /quest  
 - [x] /start_quest <difficulty>    
 - [x] /shop  
-- [ ] /buy_item <id>  
+- [x] /buy_item <id>  
 - [x] /prestige  
 - [x] /daily  
 - [x] /weekly  

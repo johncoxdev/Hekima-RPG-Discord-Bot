@@ -175,10 +175,10 @@ module.exports = {
               "wood": 100
             },
             "exp": {
-              "wood": 5
+              "wood": 1
             }, 
             "money": { 
-              "wood": 50
+              "wood": 2
             }
         },
         "hunt": {
@@ -189,16 +189,16 @@ module.exports = {
                 "beef":  10
             },
             "exp": {
-                "nothing": 1,
-                "egg": 3,
-                "lamb": 5,
-                "beef": 10
+                "nothing": 0,
+                "egg": 1,
+                "lamb": 2,
+                "beef": 4
             },
             "money": {
                 "nothing": 0,
-                "egg": 25,
-                "lamb": 40,
-                "beef": 50
+                "egg": 1,
+                "lamb": 3,
+                "beef": 5
             }
         },
         "fish": {
@@ -209,16 +209,16 @@ module.exports = {
                 "grouper": 7
             },
             "exp": {
-                "shrimp": 8,
-                "trout": 35,
-                "nothing": 5,
-                "grouper": 75
+                "shrimp": 1,
+                "trout": 2,
+                "nothing": 0,
+                "grouper": 4
             },
             "money": {
-              "shrimp": 5,
-              "trout": 20,
+              "shrimp": 1,
+              "trout": 2,
               "nothing": 0,
-              "grouper": 100
+              "grouper": 5
             }
         },
         "farm": {
@@ -230,18 +230,18 @@ module.exports = {
                 "pumpkin": 5
             },
             "exp": {
-                "chili": 5,
-                "carrot": 15,
-                "potato": 25,
-                "tomato": 75,
-                "pumpkin": 100
+                "chili": 1,
+                "carrot": 2,
+                "potato": 5,
+                "tomato": 7,
+                "pumpkin": 9
             },
             "money": {
-              "chili": 5,
-              "carrot": 15,
-              "potato": 25,
-              "tomato": 50,
-              "pumpkin": 250
+              "chili": 1,
+              "carrot": 3,
+              "potato": 5,
+              "tomato": 8,
+              "pumpkin": 10
           }
         },
         "mine": {
@@ -336,32 +336,32 @@ module.exports = {
             "money": {
                 "stone": 1,
                 "coal": 2,
-                "copper": 5,
-                "iron": 7,
-                "gold": 10,
-                "silver": 25,
-                "platinum": 50,
-                "vibrance": 100,
-                "diamond": 500,
-                "rawsteel": 1000,
-                "emerald": 1500,
-                "firestone": 1750,
-                "crystal": 3000
+                "copper": 3,
+                "iron": 4,
+                "gold": 5,
+                "silver": 15,
+                "platinum": 25,
+                "vibrance": 30,
+                "diamond": 50,
+                "rawsteel": 65,
+                "emerald": 75,
+                "firestone": 80,
+                "crystal": 100
             },
             "exp": {
                 "stone": 1,
-                "coal": 3,
-                "copper": 5,
-                "iron": 10,
-                "gold": 15,
-                "silver": 17,
-                "platinum": 20,
-                "vibrance": 100,
-                "diamond": 250,
-                "rawsteel": 500,
-                "emerald": 1000,
-                "firestone": 1500,
-                "crystal": 2500 
+                "coal": 2,
+                "copper": 3,
+                "iron": 5,
+                "gold": 7,
+                "silver": 8,
+                "platinum": 12,
+                "vibrance": 30,
+                "diamond": 48,
+                "rawsteel": 65,
+                "emerald": 70,
+                "firestone": 85,
+                "crystal": 105 
             }
         }
     },
@@ -421,7 +421,7 @@ module.exports = {
         "x_exp_per_level": 0.044,
         "y_gap_per_level": 2.01
     },
-    "shopFlatAmount": 100000,
+    "shopFlatAmount": 500000,
     "upgrade": {
         "all": {
             "money": {

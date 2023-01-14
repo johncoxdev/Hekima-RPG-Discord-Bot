@@ -20,26 +20,26 @@ module.exports = {
 
         //First check if the command is enabled
         const foundServer = await ServerDb.findOne({ where: { server_id: interaction.guildId } })
-        const dailyEnabled = foundServer.weekly_chest;
+        const weeklyEnabled = foundServer.weekly_chest;
 
         const notEnabledEmbed = new EmbedBuilder()
             .setTitle("/weekly is not enabled!")
             .setColor(color.failed);
 
-        if (!dailyEnabled) return interaction.reply({ embeds: [notEnabledEmbed] });
+        if (!weeklyEnabled) return interaction.reply({ embeds: [notEnabledEmbed] });
 
         //Get players time and check if it's ready, if not return
         const foundPlayer = await PlayerDb.findOne({ where: { discord_user_id: interaction.user.id } });
         const playerTimes = foundPlayer.times;
-        const dailyCooldown = playerTimes['weekly_claim'];
+        const weeklyCooldown = playerTimes['weekly_claim'];
         let currentTime = Math.floor(Date.now()/1000);
 
         const notReady = new EmbedBuilder()
             .setTitle("Still on cooldown!")
             .setColor(color.failed)
-            .setDescription(`You can claim your next chest on <t:${dailyCooldown}:F>`)
+            .setDescription(`You can claim your next chest on <t:${weeklyCooldown}:F>`)
 
-        if (currentTime < dailyCooldown) return interaction.reply({ embeds: [notReady] });
+        if (currentTime < weeklyCooldown) return interaction.reply({ embeds: [notReady] });
 
         //Get the chest, add it to the players database.
         const chests = foundPlayer.chest;

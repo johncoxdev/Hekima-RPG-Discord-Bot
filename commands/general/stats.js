@@ -2,6 +2,7 @@ const { EmbedBuilder, SlashCommandBuilder, AttachmentBuilder, Message } = requir
 const { color, upgrade, level_exp } = require('../../game-assets/gameconfig.js');
 const { PlayerDb } = require('../../databases/playerdb.js');
 const Canvas = require('@napi-rs/canvas');
+const { loadToolImage } = require('../../game-assets/utilities.js');
 /**
  * Stats command that will show the players level for weapon/tool/armor
  */
@@ -103,19 +104,4 @@ module.exports = {
           return interaction.reply({ embeds: [statsEmbed] });
         }
     }
-}
-
-function loadToolImage(tool, tier) {
-  const loadedImages = {
-    "helmet": `./game-assets/game-images/armor/tier ${tier}/1.png`,
-    "chestplate": `./game-assets/game-images/armor/tier ${tier}/2.png`,
-    "boots": `./game-assets/game-images/armor/tier ${tier}/3.png`,
-    "axe": `./game-assets/game-images/tool/axe/${tier}.png`,    
-    "fishing_rod": `./game-assets/game-images/tool/fishing rod/${tier}.png`,
-    "hoe": `./game-assets/game-images/tool/hoe/${tier}.png`,
-    "pickaxe": `./game-assets/game-images/tool/pickaxe/${tier}.png`,
-    "sword": `./game-assets/game-images/weapon/sword/${tier}.png`,
-    "bow": `./game-assets/game-images/weapon/bow/${tier}.png`
-  };
-  return loadedImages[tool];
 }

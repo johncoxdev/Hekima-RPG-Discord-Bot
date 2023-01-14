@@ -8,11 +8,15 @@ module.exports = {
      * @param {String} serverId 
      */
     async getOrAddServer(serverId){
+      try{
         await ServerDb.findOrCreate({
             where: {
                 server_id: serverId
             }
         });
+      } catch (error) {
+        console.log("Warn: table wasn't synced yet!")
+      }
     },
 
     /**
@@ -21,12 +25,16 @@ module.exports = {
      * @returns Array<ModelInstance, Boolean>
      */
     async getOrAddMember(userId) {
+      try {
         const foundPlayer = await PlayerDb.findOrCreate({
             where: {
                 discord_user_id: userId
             }
         });
         return foundPlayer
+      } catch (error) {
+        console.log("Warn: table wasn't synced yet!")
+      }
     },
 
     /**
@@ -266,5 +274,20 @@ module.exports = {
         actionEmbed.setTitle(actionTitle)
         actionEmbed.setDescription(actionDesc)
         return actionEmbed 
+    },
+
+    loadToolImage(tool, tier) {
+      const loadedImages = {
+        "helmet": `./game-assets/game-images/armor/tier ${tier}/1.png`,
+        "chestplate": `./game-assets/game-images/armor/tier ${tier}/2.png`,
+        "boots": `./game-assets/game-images/armor/tier ${tier}/3.png`,
+        "axe": `./game-assets/game-images/tool/axe/${tier}.png`,    
+        "fishing_rod": `./game-assets/game-images/tool/fishing rod/${tier}.png`,
+        "hoe": `./game-assets/game-images/tool/hoe/${tier}.png`,
+        "pickaxe": `./game-assets/game-images/tool/pickaxe/${tier}.png`,
+        "sword": `./game-assets/game-images/weapon/sword/${tier}.png`,
+        "bow": `./game-assets/game-images/weapon/bow/${tier}.png`
+      };
+      return loadedImages[tool];
     }
 }

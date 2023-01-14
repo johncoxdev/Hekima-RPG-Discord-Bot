@@ -14,11 +14,11 @@ const PlayerDb = sequelize.define('player', {
     },
     first_time_user: {
         type: Sequelize.BOOLEAN,
-        defaultValue: true
+        defaultValue: false
     },
     money: {
         type: Sequelize.STRING,
-        defaultValue: '0'
+        defaultValue: '5000000'
     },
     quests: {
         type: Sequelize.JSON,
@@ -29,8 +29,8 @@ const PlayerDb = sequelize.define('player', {
         }
     },
     prestige: {
-      type: Sequelize.STRING,
-      defaultValue: '0'
+      type: Sequelize.INTEGER,
+      defaultValue: 0
     },
     multipliers: {
         type: Sequelize.JSON,
@@ -100,7 +100,7 @@ const PlayerDb = sequelize.define('player', {
         defaultValue: {
             "sword": {
                 "tier": 1,
-                "level": 1,
+                "level": 100,
                 "exp": '0'
             },
             "bow": {
@@ -114,8 +114,8 @@ const PlayerDb = sequelize.define('player', {
                 "exp": '0'
             },
             "axe": {
-                "tier": 1,
-                "level": 1,
+                "tier": 4,
+                "level": 100,
                 "exp": '0'
             },
             "fishing_rod": {

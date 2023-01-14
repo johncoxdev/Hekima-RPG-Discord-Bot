@@ -20,8 +20,9 @@ module.exports = {
 
       for (const item of Object.keys(playerItems)) {
         const fixedItemName = String(item)[0].toUpperCase() + String(item).substring(1).replace("_", " ");
-        const calculatedPrice = (shopFlatAmount * playerItems[item].tier) + ((playerItems[item].tier - 1) * .85);
+        const calculatedPrice = Math.floor(shopFlatAmount * playerItems[item].tier) + (shopFlatAmount * ((playerItems[item].tier - 1) * 7.83));
         shopText += `\`ID: ${itemID}\` **| ${fixedItemName} |** $${calculatedPrice.toLocaleString()}\n`
+        itemID++;
       }
 
       const shopField = {
