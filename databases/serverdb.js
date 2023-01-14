@@ -11,10 +11,6 @@ const ServerDb = sequelize.define('serverdb', {
         type: Sequelize.INTEGER,
         unique: true,
     },
-    server_boost_channel_id: {
-        type: Sequelize.STRING,
-        defaultValue: ""
-    },
     daily_chest:{
         type: Sequelize.BOOLEAN,
         defaultValue: true
