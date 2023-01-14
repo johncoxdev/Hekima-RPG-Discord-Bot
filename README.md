@@ -22,7 +22,7 @@ Discord.js 14.2.0: [Click Here](https://www.npmjs.com/package/discord.js?source=
 @discordjs/rest 1.0.1: [Click Here](https://www.npmjs.com/package/@discordjs/rest)  
 Sequelize ORM 6.21.3: [Click Here](https://www.npmjs.com/package/sequelize)  
 sqlite3 5.0.11: [Click Here](https://www.npmjs.com/package/sqlite3)  
-dotenv 16.0.1: [Click Here](https://www.npmjs.com/package/dotenv)
+dotenv 16.0.1: [Click Here](https://www.npmjs.com/package/dotenv)  
 @napi-rs/canvas 0.1.33: [Click Here](https://www.npmjs.com/package/@napi-rs/canvas)
 
 ## Completion list
