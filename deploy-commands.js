@@ -9,9 +9,10 @@ const commandFolders = fs.readdirSync('./commands')
 
 for (const subFolder of commandFolders){
 	const commandFiles = fs.readdirSync(`./commands/${subFolder}`).filter(file => file.endsWith('.js'));
+  console.log(`🟣 Loading ${subFolder} commands...`)
 	for (const file of commandFiles){
 		const command = require(`./commands/${subFolder}/${file}`)
-		console.log("loaded:", command.data.name)
+		console.log("✅ loaded:", command.data.name)
 		commands.push(command.data.toJSON());		
 	}
 }
