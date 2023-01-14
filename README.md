@@ -47,7 +47,7 @@ Commands:
 - [x] /daily  
 - [x] /weekly  
 - [x] /leaderboards  
-- [ ] /settings
+- [x] /settings
 - [x] /balance  
   
 Features:  
