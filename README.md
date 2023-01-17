@@ -25,65 +25,43 @@ sqlite3 5.0.11: [Click Here](https://www.npmjs.com/package/sqlite3)
 dotenv 16.0.1: [Click Here](https://www.npmjs.com/package/dotenv)  
 @napi-rs/canvas 0.1.33: [Click Here](https://www.npmjs.com/package/@napi-rs/canvas)
 
-## Completion list
-
-Commands:
-- [x] /mine
-- [x] /farm  
-- [x] /hunt  
-- [x] /fish  
-- [x] /lumber  
-- [x] /stats <tools/jobs/armor>  
-- [x] /inventory  
-- [x] /use_item <id>  
-- [x] /boosters  
-- [x] /chest  
-- [x] /open_chest <type>  
-- [x] /quest  
-- [x] /start_quest <difficulty>    
-- [x] /shop  
-- [x] /buy_item <id>  
-- [x] /prestige  
-- [x] /daily  
-- [x] /weekly  
-- [x] /leaderboards  
-- [x] /settings
-- [x] /balance  
-  
-Features:  
-- [ ] voting api
-
 ----------
 ## Commands:
 
 <> = required
 ```
-General:
-  /mine
-  /farm
-  /hunt
-  /fish
-  /lumber
-  /stats <tools/jobs>
-  /inventory
-  /use_item <id>
-  /boosters
-  /chest
-  /open_chest <id>
-  /quest
-  /start_quest <difficulty>
-  /shop
-  /buy_item <id>
-  /prestige
-  /daily
-  /weekly
-  /leaderboards
-  /balance
-Staff:
-  /settings
-      Options:
-          set_channel <Channel>
-          set_daily <Boolean>
-          set_weekly <Boolean>
-```
+Crates:  
+/chest  
+/open_chest <type>  
+/daily  
+/weekly  
+
+General:  
+/balance  
+/boosters  
+/buy_item <ID>  
+/game_help  
+/inventory  
+/leaderboards  
+/prestige  
+/settings  
+  Options:
+    set_daily <Boolean>
+    set_weekly <Boolean>  
+/shop  
+/stats    
+/use_item <ID>  
+
+Jobs:  
+/farm  
+/fish  
+/hunt  
+/lumber  
+/mine  
+
+Quest:  
+/quest  
+/start_quest <ID>  
+
 ----------
+# Video coming soon!

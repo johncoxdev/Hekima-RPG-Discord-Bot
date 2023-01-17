@@ -34,7 +34,7 @@ module.exports = {
 
         if (!hasAdmin) {
             settingsEmbed.setColor(color.failed)
-            settingsEmbed.setTitle("You missing permission: `ADMINISTRATOR`!");
+            settingsEmbed.setTitle("Missing permission: `ADMINISTRATOR`!");
             return interaction.reply({ embeds: [settingsEmbed] });
         }
 
