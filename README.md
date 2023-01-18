@@ -17,7 +17,7 @@ All images are from [craftpix](https://craftpix.net/) using their various packs.
 I do not take any credit for any of the artwork that is provided within this project.
 
 ----------
-## What I used for this project:  
+## Dependencies:  
 Discord.js 14.2.0: [Click Here](https://www.npmjs.com/package/discord.js?source=post_page-----7b5fe27cb6fa----------------------)  
 @discordjs/rest 1.0.1: [Click Here](https://www.npmjs.com/package/@discordjs/rest)  
 Sequelize ORM 6.21.3: [Click Here](https://www.npmjs.com/package/sequelize)  
@@ -65,4 +65,15 @@ Quest:
  ```  
  
 ----------
+## Installation:
+If you are going to host this bot yourself, all you need to do is to create a `.env` file, and have the following keys inside of it.
+```
+GUILD_ID = "GUILD ID"
+CLIENT_ID = "BOT/CLIENT ID"
+TOKEN = "BOT/CLIENT TOKEN"
+```
+To get your guild Id, you can right-click your Discord server, and click on "Copy ID". As for you Client_ID & Token, you are going to need to get that from the Discord Developer Application page where you have created your bot.  
+After you have done that, just type `npm ci` to clean install all of the dependencies required!
+
+----------  
 # Video coming soon!
