@@ -100,7 +100,7 @@ const PlayerDb = sequelize.define('player', {
         defaultValue: {
             "sword": {
                 "tier": 1,
-                "level": 100,
+                "level": 1,
                 "exp": '0'
             },
             "bow": {
@@ -114,8 +114,8 @@ const PlayerDb = sequelize.define('player', {
                 "exp": '0'
             },
             "axe": {
-                "tier": 4,
-                "level": 100,
+                "tier": 1,
+                "level": 1,
                 "exp": '0'
             },
             "fishing_rod": {
